@@ -1,0 +1,213 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 5px 0;
+
+}
+
+p {
+  margin: 0;
+}
+
+.img-perfil{
+  width: 150px;
+  height: 150px;
+  margin-top: 200px;
+}
+
+.flexbox1{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 8vh;
+}
+
+.flexbox2{
+  text-align: center;
+  min-height: 4vh;
+}
+
+.spacer {
+  flex: 1;
+  font-size: small;
+  font-weight: bold;
+  opacity: 90%;
+}
+
+.sect {
+  width: 100%;
+  min-height: 650px;
+}
+
+#sect1 {
+  position: relative;
+  overflow: hidden;
+}
+
+video {
+  position: absolute;
+  left: 0;
+  top: 0;
+  min-height: 100%;
+  min-width: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1000;
+  overflow: hidden;
+}
+
+.toolbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  color: rgb(3, 3, 3);
+  font-weight: 600;
+  padding: 0 40px;
+}
+
+.nav_toggler-touch {
+  height: 4.1875rem;
+  content: "";
+  display: table;
+  position: absolute;
+  z-index: 9999;
+  width: 100%;
+}
+
+.logoargprog{
+  filter: invert(1);
+  }
+/*
+.toolbar img {
+  margin: 0 16px;
+}
+
+
+.toolbar #twitter-logo {
+  height: 20px;
+  margin: 0 8px;
+}
+
+.toolbar #youtube-logo {
+  height: 40px;
+  margin: 0 16px;
+}
+ //antes: .toolbar #facebook-logo:hover
+ //antes: ultima linea del path " fill="#fff"/>
+*/
+.toolbar #facebook-logo,
+.toolbar #instagram-logo,
+.toolbar #twitter-logo,
+.toolbar #linkedin-logo,
+.toolbar #github-logo {
+  opacity: 0.8;
+  margin: 0 5px;
+}
+
+
+
+/*ABOUT*/
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.cf:after {
+    clear: both;
+}
+
+.cf {
+    *zoom: 1;
+}
+.wrapper {
+  width: 100%;
+  max-width: 100%;
+  margin-right: auto;
+  margin-left: auto;
+  margin-top: 0px;
+}
+.contenido-movil {
+  width: 50%;
+}
+
+.contenido-movil p{
+  font-family:Arial, Helvetica, sans-serif;
+  margin-left: 80px;
+  margin-right: 80px;
+  margin-top: 65px;
+}
+.contenido-fijo {
+  padding: 20px;
+  width: 50%;
+  color: #fff;
+}
+.contenido-fijo h3{
+  margin: 0;
+  height: 50%;
+  height: 650px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.contenido-movil,
+.contenido-fijo {
+  float: left;
+}
+
+
+/* The sticky */
+.contenido-fijo {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+
+.ccf1{
+  background-color: coral;
+}
+.ccm1{
+  background-color: #fff0ea;
+}
+.ccf2{
+  background-color: darkcyan;
+}
+.ccm2{
+  background-color: #e3ffff;
+}
+.ccf3{
+  background-color: lightgreen;
+}
+.ccm3{
+  background-color: #e4ffe4;
+}
+.ccf4{
+  background-color: mediumpurple;
+}
+.ccm4{
+  background-color: #e9e1fc;
+}
+.ccf5{
+  background-color: goldenrod;
+}
+.ccm5{
+  background-color: #fff9e9;
+}
+
+.boton-editar{
+  margin-left: -90px;
+  margin-top: 10%;
+}
+
+
+
