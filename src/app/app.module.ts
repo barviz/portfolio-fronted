@@ -6,7 +6,9 @@ import { EncabezadoComponent } from './componentes/encabezado/encabezado.compone
 import { AptitudesComponent } from './componentes/aptitudes/aptitudes.component';
 import { AcercaDeComponent } from './componentes/acerca-de/acerca-de.component';
 import { LogrosComponent } from './componentes/logros/logros.component';
-import { ExperienciaYEducacionComponent } from './componentes/experiencia-y-educacion/experiencia-y-educacion.component';
+import { EducacionComponent } from './componentes/educacion/educacion.component';
+import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
+import { MenuComponent } from './componentes/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { ExperienciaYEducacionComponent } from './componentes/experiencia-y-educ
     AptitudesComponent,
     AcercaDeComponent,
     LogrosComponent,
-    ExperienciaYEducacionComponent
+    EducacionComponent,
+    ExperienciaComponent,
+    MenuComponent
   ],
   imports: [
     BrowserModule

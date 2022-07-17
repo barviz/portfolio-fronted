@@ -105,5 +105,7 @@
       }
     }
   },
-  "defaultProject": "PortfolioWebFullStack"
+  "cli": {
+    "analytics": false
+  }
 }
