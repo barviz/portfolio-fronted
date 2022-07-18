@@ -9,6 +9,7 @@ import { LogrosComponent } from './componentes/logros/logros.component';
 import { EducacionComponent } from './componentes/educacion/educacion.component';
 import { ExperienciaComponent } from './componentes/experiencia/experiencia.component';
 import { MenuComponent } from './componentes/menu/menu.component';
+import { HttpClientModule } from '@angular/common/http'
 
 @NgModule({
   declarations: [
@@ -19,10 +20,11 @@ import { MenuComponent } from './componentes/menu/menu.component';
     LogrosComponent,
     EducacionComponent,
     ExperienciaComponent,
-    MenuComponent
+    MenuComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
