@@ -1,77 +1,405 @@
 <div id="seccion-educacion" class="wrapper cf">
-
   <!--INICIO MITAD FIJA-->
 
   <div class="contenido-fijo ccf2">
     <!--boton añadir y titulo de seccion-->
-    <div id="boton">
-      <a href="#editEmployeeModal" class="boton-agregar" data-toggle="modal"><button type="button"
-          class="btn btn-default boton-agregar">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square"
-            viewBox="0 0 16 16">
+    <div class="centrado">
+      <div class="boton-agregar">
+        <button
+          type="button"
+          class="btn btn-default boton-agregar"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          data-bs-toggle="modal"
+          data-bs-target="#addEducacionModal"
+          title="Añadir Educacion"
+          (click)="onOpenModal('add')"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-plus-square"
+            viewBox="0 0 16 16"
+          >
             <path
-              d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+              d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+            />
             <path
-              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-          </svg></button></a>
-    </div>
-    <div class="titulo-seccion">
-      <h3>Education</h3>
-    </div>
+              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+            />
+          </svg>
+        </button>
+      </div>
 
+      <!--titulo de seccion-->
+
+      <div class="titulo-seccion">
+        <h3>Education</h3>
+      </div>
+    </div>
   </div>
 
-
-
   <!--FIN MITAD FIJA-->
+
+  <!-- Modal add -->
+
+  <div
+    class="modal fade"
+    id="addEducacionModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="addEducacionModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div
+        class="modal-content modal-css"
+        style="background-color: rgb(143, 222, 248)"
+      >
+        <div class="modal-header">
+          <h5 class="modal-title" id="addEducacionModalLabel">
+            Añadir Educación
+          </h5>
+          <button
+            type="button"
+            class="btn-close green"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onAddEducacion(addForm)">
+            <div class="form-group">
+              <label for="titulo">Título</label>
+              <input
+                type="text"
+                class="form-control"
+                id="titulo"
+                name="titulo"
+                ngModel
+                required
+                placeholder="Título"
+              />
+            </div>
+            <div class="form-group">
+              <label for="institucion">Institucion</label>
+              <input
+                type="text"
+                class="form-control"
+                id="institucion"
+                name="institucion"
+                ngModel
+                required
+                placeholder="Institución"
+              />
+            </div>
+            <div class="form-group">
+              <label for="anio_inicio">Año Ingreso</label>
+              <input
+                type="number"
+                class="form-control"
+                id="anio_inicio"
+                name="anio_inicio"
+                ngModel
+                required
+                placeholder="Año de ingreso"
+              />
+            </div>
+            <div class="form-group">
+              <label for="anio_fin">Año Egreso</label>
+              <input
+                type="number"
+                class="form-control"
+                id="anio_fin"
+                name="anio_fin"
+                ngModel
+                required
+                placeholder="Año de egreso"
+              />
+            </div>
+            <div class="form-group">
+              <label for="img_url_logo">URL Imagen</label>
+              <input
+                type="url"
+                class="form-control"
+                id="img_url_logo"
+                name="img_url_logo"
+                ngModel
+                required
+                placeholder="URL Imagen"
+              />
+            </div>
+            <div class="modal-footer mt-3">
+              <button
+                type="button"
+                id="add-education-form"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cancelar
+              </button>
+
+              <button
+                type="submit"
+                class="btn btn-primary"
+                [disabled]="addForm.invalid"
+                data-bs-dismiss="modal"
+              >
+                Añadir
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fin modal add -->
 
   <!--INICIO MITAD SCROLL-->
 
   <div class="contenido-movil ccm2">
     <!--botones editar y eliminar-->
+
     <div class="card-ind">
       <div *ngFor="let educacion of educaciones" class="esp">
         <div id="boton-edicion">
-          <a href="#editEmployeeModal" class="boton-editar" data-toggle="modal"><button type="button"
-              class="btn btn-default boton-editar">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-pencil-square" viewBox="0 0 16 16">
+          <a class="boton-editar">
+            <button
+              type="button"
+              class="btn btn-default boton-editar"
+              data-bs-toggle="modal"
+              data-bs-target="#editEducacionModal"
+              title="Actualizar Educacion"
+              (click)="onOpenModal('edit', educacion)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-pencil-square"
+                viewBox="0 0 16 16"
+              >
                 <path
-                  d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                <path fill-rule="evenodd"
-                  d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-              </svg></button></a>
-          <a href="#deleteEmployeeModal" class="boton-borrar" data-toggle="modal"><button type="button"
-              class="btn btn-default boton-borrar">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                  d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
+                />
                 <path
-                  d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
-              </svg></button></a>
+                  fill-rule="evenodd"
+                  d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+                />
+              </svg></button
+          ></a>
+          <a class="boton-borrar">
+            <button
+              type="button"
+              class="btn btn-default boton-borrar"
+              data-bs-target="#deleteEducacionModal"
+              title="DOBLE CLICK para eliminar"
+              (dblclick)="onDeleteEducacion(educacion.id)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-trash3-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
+                />
+              </svg></button
+          ></a>
         </div>
 
         <!--tarjeta-->
 
-        <img class="h-12 w-12 mb-3 | sm:float-left sm:h-24 sm:w-24 sm:mr-6 sm:mb-0"
-          src="http://placeimg.com/200/200/tech" />
+        <img
+          style="width: 300px; padding: 10px"
+          src="{{ educacion.img_url_logo }}"
+        />
         <div>
-          <h3 class="text-sm text-neutral-content text-center mb-3 | sm:text-left sm:text-xl">
-            {{educacion.titulo}}
+          <h3
+            class="text-sm text-neutral-content text-center mb-3 | sm:text-left sm:text-xl"
+          >
+            {{ educacion.titulo }}
           </h3>
-          <p class="text-xs font-semibold mb-3 text-secondary | sm:text-left sm:text-base">
-            {{educacion.institucion}}
+          <p
+            class="text-xs font-semibold mb-3 text-secondary | sm:text-left sm:text-base"
+          >
+            {{ educacion.institucion }}
           </p>
-          <h6 class="text-xs text-neutral-content text-center | sm:text-left sm:text-base">
-            {{educacion.anio_fin}} - {{educacion.anio_inicio}}
+          <h6
+            class="text-xs text-neutral-content text-center | sm:text-left sm:text-base"
+          >
+            {{ educacion.anio_inicio }} - {{ educacion.anio_fin }}
           </h6>
         </div>
       </div>
     </div>
-
   </div>
-
 
   <!--FIN MITAD SCROLL-->
 
+  <!-- Modal edit -->
+  <div
+    class="modal fade"
+    id="editEducacionModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="updateEducacionModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div
+        class="modal-content modal-css"
+        style="background-color: rgb(137, 243, 243)"
+      >
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateEducacionModalLabel">
+            Actualizar Educación
+          </h5>
+          <button
+            type="button"
+            class="btn-close green"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form #editForm="ngForm">
+            <div class="form-group">
+              <label for="titulo">Título</label>
+              <input
+                type="text"
+                class="form-control"
+                id="titulo"
+                name="titulo"
+                ngModel="{{ editEducacion?.titulo }}"
+                required
+                placeholder="Título"
+              />
+            </div>
 
+            <input
+              type="hidden"
+              ngModel="{{ editEducacion?.id }}"
+              name="id"
+              class="form-control"
+              id="id"
+              placeholder=""
+            />
+
+            <div class="form-group">
+              <label for="institucion">Institución</label>
+              <input
+                type="text"
+                class="form-control"
+                id="institucion"
+                name="institucion"
+                ngModel="{{ editEducacion?.institucion }}"
+                required
+                placeholder="Institución"
+              />
+            </div>
+            <div class="form-group">
+              <label for="anio_inicio">Año Ingreso</label>
+              <input
+                type="number"
+                class="form-control"
+                id="anio_inicio"
+                name="anio_inicio"
+                ngModel="{{ editEducacion?.anio_inicio }}"
+                required
+                placeholder="Año de ingreso"
+              />
+            </div>
+            <div class="form-group">
+              <label for="anio_fin">Año Egreso</label>
+              <input
+                type="number"
+                class="form-control"
+                id="anio_fin"
+                name="anio_fin"
+                ngModel="{{ editEducacion?.anio_fin }}"
+                required
+                placeholder="Año de egreso"
+              />
+            </div>
+            <div class="form-group">
+              <label for="img_url_logo">URL Imagen</label>
+              <input
+                type="url"
+                class="form-control"
+                id="img_url_logo"
+                name="img_url_logo"
+                ngModel="{{ editEducacion?.img_url_logo }}"
+                required
+                placeholder="URL Imagen"
+              />
+            </div>
+            <div class="modal-footer mt-3">
+              <button
+                type="reset"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cancelar
+              </button>
+
+              <button
+                (click)="onUpdateEducacion(editForm.value)"
+                class="btn btn-primary"
+                data-bs-dismiss="modal"
+              >
+                Guardar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal eliminar
+  <div
+    class="modal fade"
+    id="deleteEducacionModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="deleteModelLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModelLabel">Eliminar Educación</h5>
+        </div>
+        <div class="modal-body">
+          <p style="color: rgb(255, 255, 255)">
+            ¿Seguro que desea eliminar esta educación
+            {{ eliminarEducacion?.titulo }}?
+          </p>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              No
+            </button>
+            <button
+              (click)="onDeleteEducacion(eliminarEducacion!.id)"
+              class="btn btn-danger"
+              data-dismiss="modal"
+            >
+              Si
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>-->
 </div>

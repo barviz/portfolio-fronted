@@ -1,6 +1,7 @@
+import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Persona } from 'src/app/model/persona.model';
-import { PersonaService } from 'src/app/servicios/persona.service';
+import { PersonaDatos } from 'src/app/model/persona-datos.model';
+import { PersonaDatosService } from 'src/app/servicios/persona-datos.service';
 
 @Component({
   selector: 'app-encabezado',
@@ -9,14 +10,53 @@ import { PersonaService } from 'src/app/servicios/persona.service';
 })
 export class EncabezadoComponent implements OnInit {
 
-  persona: Persona = new Persona("", "", "", "", "", "", "");
+  personaDatos: PersonaDatos = new PersonaDatos(1,"", "", "", "", "", "");
 
-  constructor(public personaService: PersonaService) { }
+  public editPersonaDatos: PersonaDatos | undefined;
+  public deletePersonaDatos: PersonaDatos | undefined;
+
+  constructor(public personaDatosService: PersonaDatosService) { }
 
   ngOnInit(): void {
+    this.getPersonaDatos();  }
 
-    this.personaService.getPersona().subscribe(data => { this.persona = data })
-
+  getPersonaDatos(): void {
+    this.personaDatosService.buscarPersonaDatosPorId(1).subscribe(data => { this.personaDatos = data })
   }
 
+  public onOpenModal(mode: String, personaDatos?: PersonaDatos): void {
+    const container = document.getElementById('main-container');
+    const button = document.createElement('button');
+    //button.type = 'button';
+    button.style.display = 'none';
+    button.setAttribute('data-toggle', 'modal');
+    if (mode === 'edit') {
+      this.editPersonaDatos = personaDatos;
+      button.setAttribute('data-target', '#editPersonaDatosModal');
+    }
+
+    container?.appendChild(button);
+    button.click();
+  }
+
+
+
+  public onUpdatePersonaDatos(personaDatos: PersonaDatos): void {
+    this.editPersonaDatos = personaDatos;
+    document.getElementById('edit-personaDatos-form')?.click();
+    this.personaDatosService.actualizarPersonaDatos(personaDatos).subscribe({
+      next: (response: PersonaDatos) => {
+        console.log(response);
+        this.getPersonaDatos();
+      },
+      error: (error: HttpErrorResponse) => {
+        alert(error.message);
+      },
+    });
+  }
+
+
+
 }
+
+

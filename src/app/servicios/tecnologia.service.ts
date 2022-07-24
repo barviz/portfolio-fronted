@@ -13,23 +13,23 @@ export class TecnologiaService {
   constructor(private httpClient: HttpClient) { }
 
   public crearTecnologia(tecnologia: Tecnologia): Observable<Tecnologia>{
-    return this.httpClient.post<Tecnologia>(this.URL+ '', tecnologia);
+    return this.httpClient.post<Tecnologia>(this.URL+ 'crear', tecnologia);
   }
 
   public actualizarTecnologia(tecnologia: Tecnologia): Observable<Tecnologia>{
-    return this.httpClient.put<Tecnologia>(this.URL+ '', tecnologia);
+    return this.httpClient.put<Tecnologia>(this.URL+ 'actualizar', tecnologia);
   }
 
   public eliminarTecnologia(id: number): Observable<void>{
-    return this.httpClient.delete<void>(this.URL+ `/${id}`);
+    return this.httpClient.delete<void>(this.URL+ `eliminar/${id}`);
   }
 
   public listarTecnologia(): Observable<Tecnologia[]>{
-    return this.httpClient.get<Tecnologia[]>(this.URL+ 'lista');
+    return this.httpClient.get<Tecnologia[]>(this.URL+ 'listar');
   }
 
   public buscarTecnologiaPorId(id: number): Observable<Tecnologia>{
-    return this.httpClient.get<Tecnologia>(this.URL+ `/${id}`);
+    return this.httpClient.get<Tecnologia>(this.URL+ `buscar/${id}`);
   }
 
 }

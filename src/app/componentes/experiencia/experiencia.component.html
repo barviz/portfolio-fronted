@@ -1,74 +1,399 @@
 <div id="seccion-experiencia" class="wrapper cf">
-
   <!--INICIO MITAD FIJA-->
 
   <div class="contenido-fijo ccf3">
-    <!--boton añadir y titulo de seccion-->
-    <div id="boton">
-      <a href="#editEmployeeModal" class="boton-agregar" data-toggle="modal"><button type="button"
-          class="btn btn-default boton-agregar">
-          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-square"
-            viewBox="0 0 16 16">
+    <!--boton añadir -->
+
+    <div class="centrado">
+      <div class="boton-agregar">
+        <button
+          type="button"
+          class="btn btn-default boton-agregar"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
+          data-bs-toggle="modal"
+          data-bs-target="#addExperienciaModal"
+          title="Añadir Experiencia"
+          (click)="onOpenModal('add')"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-plus-square"
+            viewBox="0 0 16 16"
+          >
             <path
-              d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z" />
+              d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+            />
             <path
-              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z" />
-          </svg></button></a>
+              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+            />
+          </svg>
+        </button>
+      </div>
+
+      <!--titulo de seccion-->
+
+      <div class="titulo-seccion">
+        <h3>Experience</h3>
+      </div>
+
     </div>
-    <div class="titulo-seccion">
-      <h3>Experience</h3>
-    </div>
+
   </div>
 
+   <!--FIN MITAD FIJA-->
 
-  <!--FIN MITAD FIJA-->
+  <!-- Modal add -->
+
+  <div
+    class="modal fade"
+    id="addExperienciaModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="addExperienciaModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content modal-css" style="background-color: rgb(147, 247, 213)">
+        <div class="modal-header">
+          <h5 class="modal-title" id="addExperienciaModalLabel">
+            Añadir Experiencia
+          </h5>
+          <button
+            type="button"
+            class="btn-close green"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form #addForm="ngForm" (ngSubmit)="onAddExperiencia(addForm)">
+            <div class="form-group">
+              <label for="puesto">Puesto</label>
+              <input
+                type="text"
+                class="form-control"
+                id="puesto"
+                name="puesto"
+                ngModel
+                required
+                placeholder="Puesto"
+              />
+            </div>
+            <div class="form-group">
+              <label for="empresa">Empresa</label>
+              <input
+                type="text"
+                class="form-control"
+                id="empresa"
+                name="empresa"
+                ngModel
+                required
+                placeholder="Empresa"
+              />
+            </div>
+            <div class="form-group">
+              <label for="descripcion">Descripción</label>
+              <textarea
+                type="text"
+                class="form-control"
+                id="descripcion"
+                name="descripcion"
+                ngModel
+                required
+                placeholder="Descripción"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="anio_inicio">Año Ingreso</label>
+              <input
+                type="number"
+                class="form-control"
+                id="anio_inicio"
+                name="anio_inicio"
+                ngModel
+                required
+                placeholder="Año Ingreso"
+              />
+            </div>
+            <div class="form-group">
+              <label for="anio_fin">Año Egreso</label>
+              <input
+                type="number"
+                class="form-control"
+                id="anio_fin"
+                name="anio_fin"
+                ngModel
+                required
+                placeholder="Año de Egreso"
+              />
+            </div>
+            <div class="form-group">
+              <label for="img_url_logo">URL Imagen</label>
+              <input
+                type="url"
+                class="form-control"
+                id="img_url_logo"
+                name="img_url_logo"
+                ngModel
+                required
+                placeholder="URL Imagen"
+              />
+            </div>
+            <div class="modal-footer mt-3">
+              <button
+                type="button"
+                id="add-experiencia-form"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cancelar
+              </button>
+
+              <button
+                type="submit"
+                class="btn btn-primary"
+                [disabled]="addForm.invalid"
+                data-bs-dismiss="modal"
+              >
+                Añadir
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- fin modal add -->
 
   <!--INICIO MITAD SCROLL-->
 
   <div class="contenido-movil ccm3">
+
     <!--botones editar y eliminar-->
+
     <div class="card-ind">
       <div *ngFor="let experiencia of experiencias" class="esp">
         <div id="boton-edicion">
-          <a href="#editEmployeeModal" class="boton-editar" data-toggle="modal"><button type="button"
-              class="btn btn-default boton-editar">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-pencil-square" viewBox="0 0 16 16">
+          <a class="boton-editar">
+            <button
+              type="button"
+              class="btn btn-default boton-editar"
+              data-bs-toggle="modal"
+              data-bs-target="#editExperienciaModal"
+              title="Actualizar Experiencia"
+              (click)="onOpenModal('edit', experiencia)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-pencil-square"
+                viewBox="0 0 16 16"
+              >
                 <path
-                  d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z" />
-                <path fill-rule="evenodd"
-                  d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z" />
-              </svg></button></a>
-          <a href="#deleteEmployeeModal" class="boton-borrar" data-toggle="modal"><button type="button"
-              class="btn btn-default boton-borrar">
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                class="bi bi-trash3-fill" viewBox="0 0 16 16">
+                  d="M15.502 1.94a.5.5 0 0 1 0 .706L14.459 3.69l-2-2L13.502.646a.5.5 0 0 1 .707 0l1.293 1.293zm-1.75 2.456-2-2L4.939 9.21a.5.5 0 0 0-.121.196l-.805 2.414a.25.25 0 0 0 .316.316l2.414-.805a.5.5 0 0 0 .196-.12l6.813-6.814z"
+                />
                 <path
-                  d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z" />
-              </svg></button></a>
+                  fill-rule="evenodd"
+                  d="M1 13.5A1.5 1.5 0 0 0 2.5 15h11a1.5 1.5 0 0 0 1.5-1.5v-6a.5.5 0 0 0-1 0v6a.5.5 0 0 1-.5.5h-11a.5.5 0 0 1-.5-.5v-11a.5.5 0 0 1 .5-.5H9a.5.5 0 0 0 0-1H2.5A1.5 1.5 0 0 0 1 2.5v11z"
+                />
+              </svg>
+            </button>
+          </a>
+          <a class="boton-borrar">
+            <button
+              type="button"
+              class="btn btn-default boton-borrar"
+              data-bs-target="#deleteExperienciaModal"
+              title="DOBLE CLICK para eliminar"
+              (dblclick)="onDeleteExperiencia(experiencia.id)"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                class="bi bi-trash3-fill"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M11 1.5v1h3.5a.5.5 0 0 1 0 1h-.538l-.853 10.66A2 2 0 0 1 11.115 16h-6.23a2 2 0 0 1-1.994-1.84L2.038 3.5H1.5a.5.5 0 0 1 0-1H5v-1A1.5 1.5 0 0 1 6.5 0h3A1.5 1.5 0 0 1 11 1.5Zm-5 0v1h4v-1a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5ZM4.5 5.029l.5 8.5a.5.5 0 1 0 .998-.06l-.5-8.5a.5.5 0 1 0-.998.06Zm6.53-.528a.5.5 0 0 0-.528.47l-.5 8.5a.5.5 0 0 0 .998.058l.5-8.5a.5.5 0 0 0-.47-.528ZM8 4.5a.5.5 0 0 0-.5.5v8.5a.5.5 0 0 0 1 0V5a.5.5 0 0 0-.5-.5Z"
+                />
+              </svg>
+            </button>
+          </a>
         </div>
 
         <!--tarjeta-->
-        <img class="h-12 w-12 mb-3 | sm:float-left sm:h-24 sm:w-24 sm:mr-6 sm:mb-0"
-          src="http://placeimg.com/200/200/tech" />
+
+        <img
+          style="width: 300px; padding: 10px"
+          src="{{ experiencia.img_url_logo }}"
+        />
         <div>
-          <h3 class="text-sm text-neutral-content text-center mb-3 | sm:text-left sm:text-xl">
-            {{experiencia.puesto}}
+          <h3
+            class="text-sm text-neutral-content text-center mb-3 | sm:text-left sm:text-xl"
+          >
+            {{ experiencia.puesto }}
           </h3>
-          <h5 class="text-xs text-neutral-content text-center | sm:text-left sm:text-base">
-            {{experiencia.empresa}}
+          <h5
+            class="text-xs text-neutral-content text-center | sm:text-left sm:text-base"
+          >
+            {{ experiencia.empresa }}
           </h5>
-          <p class="text-xs font-semibold mb-3 text-secondary | sm:text-left sm:text-base">
-            {{experiencia.descripcion}}
+          <p
+            class="text-xs font-semibold mb-3 text-secondary | sm:text-left sm:text-base"
+          >
+            {{ experiencia.descripcion }}
           </p>
-          <h6 class="text-xs text-neutral-content text-center | sm:text-left sm:text-base">
-            {{experiencia.anio_fin}} - {{experiencia.anio_inicio}}
+          <h6
+            class="text-xs text-neutral-content text-center | sm:text-left sm:text-base"
+          >
+            {{ experiencia.anio_inicio }} - {{ experiencia.anio_fin }}
           </h6>
         </div>
       </div>
     </div>
   </div>
 
-  <!--FIN MITAD SCROLL-->
+    <!--FIN MITAD SCROLL-->
+
+  <!-- Modal Edit -->
+
+  <div
+    class="modal fade"
+    id="editExperienciaModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="updateExperienciaModalLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content modal-css" style="background-color: aquamarine">
+        <div class="modal-header">
+          <h5 class="modal-title" id="updateExperienciaModalLabel">
+            Actualizar Experiencia
+          </h5>
+          <button
+            type="button"
+            class="btn-close green"
+            data-bs-dismiss="modal"
+            aria-label="Close"
+          ></button>
+        </div>
+        <div class="modal-body">
+          <form #editForm="ngForm">
+            <div class="form-group">
+              <label for="puesto">Puesto</label>
+              <input
+                type="text"
+                class="form-control"
+                id="puesto"
+                name="puesto"
+                ngModel="{{ editExperiencia?.puesto }}"
+                required
+                placeholder="Puesto"
+              />
+            </div>
+            <input
+              type="hidden"
+              ngModel="{{ editExperiencia?.id }}"
+              name="id"
+              class="form-control"
+              id="id"
+              placeholder=""
+            />
+            <div class="form-group">
+              <label for="empresa">Empresa</label>
+              <input
+                type="text"
+                class="form-control"
+                id="empresa"
+                name="empresa"
+                ngModel="{{ editExperiencia?.empresa }}"
+                required
+                placeholder="Empresa"
+              />
+            </div>
+            <div class="form-group">
+              <label for="descripcion">Descripción</label>
+              <textarea
+                type="text"
+                class="form-control"
+                id="descripcion"
+                name="descripcion"
+                ngModel="{{ editExperiencia?.descripcion }}"
+                required
+                placeholder="Descripción"
+              ></textarea>
+            </div>
+            <div class="form-group">
+              <label for="anio_inicio">Año Ingreso</label>
+              <input
+                type="number"
+                class="form-control"
+                id="anio_inicio"
+                name="anio_inicio"
+                ngModel="{{ editExperiencia?.anio_inicio }}"
+                required
+                placeholder="Año Ingreso"
+              />
+            </div>
+            <div class="form-group">
+              <label for="anio_fin">Año Egreso</label>
+              <input
+                type="number"
+                class="form-control"
+                id="anio_fin"
+                name="anio_fin"
+                ngModel="{{ editExperiencia?.anio_fin }}"
+                required
+                placeholder="Año de Egreso"
+              />
+            </div>
+            <div class="form-group">
+              <label for="img_url_logo">URL Imagen</label>
+              <input
+                type="url"
+                class="form-control"
+                id="img_url_logo"
+                name="img_url_logo"
+                ngModel="{{ editExperiencia?.img_url_logo }}"
+                required
+                placeholder="URL imagen del centro educativo"
+              />
+            </div>
+
+            <div class="modal-footer mt-3">
+              <button
+                type="reset"
+                class="btn btn-secondary"
+                data-bs-dismiss="modal"
+              >
+                Cancelar
+              </button>
+
+              <button
+                (click)="onUpdateExperiencia(editForm.value)"
+                class="btn btn-primary"
+                data-bs-dismiss="modal"
+              >
+                Guardar
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- fin Modal Edit -->
+
+
 
 </div>
