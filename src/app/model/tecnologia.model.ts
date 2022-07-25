@@ -1,10 +1,10 @@
 export class Tecnologia {
   id: number;
-  nombre: String;
-  porcentaje: String;
-  img_url_logo: String;
+  nombre: string;
+  porcentaje: number;
+  img_url_logo: string;
 
-  constructor(id: number, nombre: String, porcentaje: String, img_url_logo: String) {
+  constructor(id: number, nombre: string, porcentaje: number, img_url_logo: string) {
     this.id = id;
     this.nombre = nombre;
     this.porcentaje = porcentaje;

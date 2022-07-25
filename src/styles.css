@@ -210,7 +210,7 @@ video {
   background-color: goldenrod;
 }
 .ccm5{
-  background-color: #fff9e9;
+  background-color: #f5f0a7;
 }
 
 .card-ind {
@@ -219,7 +219,7 @@ video {
 }
 
 .esp{
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 
 .centrado{
@@ -278,6 +278,13 @@ button:active {
   align-items: center;
   justify-content: center;
   flex-direction: row;
+
+}
+
+.skills-posic{
+ display: flex;
+ justify-content: center;
+ margin-top: 100px;
 
 }
 

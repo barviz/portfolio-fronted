@@ -90,4 +90,5 @@ export class AptitudesComponent implements OnInit {
       },
     });
   }
+
 }
