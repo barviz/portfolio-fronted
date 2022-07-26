@@ -365,8 +365,9 @@ a {
 }
 
 .menu {
-  margin: 250px 300px;
+  margin: 285px 295px;
   position: fixed;
+  opacity: 10%;
   z-index: 1;
   top: 0;
   bottom: 0;
@@ -377,6 +378,10 @@ a {
   text-align: center;
   box-sizing: border-box;
   font-size: 26px;
+}
+
+.menu:hover{
+  opacity: 100%;
 }
 
  .menu-item {

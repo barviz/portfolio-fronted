@@ -1,5 +1,6 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PersonaDatos } from 'src/app/model/persona-datos.model';
 import { PersonaDatosService } from 'src/app/servicios/persona-datos.service';
 
@@ -15,7 +16,7 @@ export class EncabezadoComponent implements OnInit {
   public editPersonaDatos: PersonaDatos | undefined;
   public deletePersonaDatos: PersonaDatos | undefined;
 
-  constructor(public personaDatosService: PersonaDatosService) { }
+  constructor(public personaDatosService: PersonaDatosService, private router: Router) { }
 
   ngOnInit(): void {
     this.getPersonaDatos();  }
@@ -55,7 +56,9 @@ export class EncabezadoComponent implements OnInit {
     });
   }
 
-
+  login(){
+    this.router.navigate(['inicio-sesion']);
+  }
 
 }
 
