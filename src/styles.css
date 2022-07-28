@@ -12,10 +12,6 @@ h6 {
 
 }
 
-p {
-  margin: 0;
-}
-
 .img-perfil{
   width: 150px;
   height: 150px;
@@ -281,11 +277,9 @@ button:active {
 
 }
 
-.skills-posic{
+.posic-centr{
  display: flex;
  justify-content: center;
- margin-top: 100px;
-
 }
 
 
@@ -590,3 +584,187 @@ a {
 .credit a:hover {
   text-decoration: underline;
 }
+
+
+
+/* footer */
+
+.txt-footer {
+  color : rgb(184, 27, 27);
+  text-align: center;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  font-size: 1.1em;
+  font-weight: bold;
+}
+
+
+
+@keyframes login-dog-head-nod {
+  0% {
+      transform: rotate(21deg);
+  }
+  16% {
+      transform: rotate(24deg);
+  }
+  50% {
+      transform: rotate(11deg);
+  }
+  84% {
+      transform: rotate(1deg);
+  }
+  100% {
+      transform: rotate(21deg);
+  }
+}
+
+@keyframes login-dog-tail-wag {
+  0% {
+      transform: rotate(-25deg);
+  }
+  50% {
+      transform: rotate(13deg);
+  }
+  100% {
+      transform: rotate(-25deg);
+  }
+}
+
+#login-dog-head {
+  transform-origin: 182px 162px;
+  animation: login-dog-head-nod 6s ease-in-out infinite;
+}
+
+#login-dog-tail {
+  transform-origin: 192.8px 196.5px;
+  animation: login-dog-tail-wag 0.5s ease-in-out infinite;
+}
+
+@keyframes login-cloud-left-float {
+  0% {
+      transform: translateX(0px);
+  }
+  50% {
+      transform: translateX(10px);
+  }
+  100% {
+      transform: translateX(0px);
+  }
+}
+
+@keyframes login-cloud-right-float {
+  0% {
+      transform: translateX(0px);
+  }
+  50% {
+      transform: translateX(3px);
+  }
+  100% {
+      transform: translateX(0px);
+  }
+}
+
+#login-cloud-right {
+  animation: login-cloud-right-float 10s ease-in-out infinite;
+}
+
+#login-cloud-left {
+  animation: login-cloud-left-float 10s ease-in-out infinite;
+}
+
+
+
+@keyframes login-flowers-rotate {
+  0% {
+      transform: rotate(0deg);
+  }
+  25% {
+      transform: rotate(5deg);
+  }
+  75% {
+      transform: rotate(-5deg);
+  }
+  100% {
+      transform: rotate(0deg);
+  }
+}
+
+#login-flower-left {
+  transform-origin: 106px 199px;
+  animation: login-flowers-rotate 10s ease-in-out infinite;
+}
+
+#login-flower-middle {
+  transform-origin: 220px 199px;
+  animation: login-flowers-rotate 8s ease-in-out infinite;
+}
+
+#login-flower-right {
+  transform-origin: 351px 199px;
+  animation: login-flowers-rotate 6s ease-in-out infinite;
+}
+
+@keyframes login-grass-move {
+  0% {
+      transform: skewX(-5deg);
+  }
+  50% {
+      transform: skewX(5deg);
+  }
+  100% {
+      transform: skewX(-5deg);
+  }
+}
+
+#login-grass .st0 {
+  transform-origin: 0px 199px;
+  animation: login-grass-move 10s ease-in-out infinite;
+}
+
+#login-grass .st1 {
+  transform-origin: 0px 199px;
+  animation: login-grass-move 7s ease-in-out infinite;
+}
+
+#login-grass .st2 {
+  transform-origin: 0px 199px;
+  animation: login-grass-move 5s ease-in-out infinite;
+}
+
+@keyframes login-tree-move {
+  0% {
+      transform: skewX(0.5deg);
+  }
+  50% {
+      transform: skewX(-0.5deg);
+  }
+  100% {
+      transform: skewX(0.5deg);
+  }
+}
+
+#login-tree-left {
+  transform-origin: 0px 199px;
+  animation: login-tree-move 7s ease-in-out infinite;
+}
+
+#login-tree-right {
+  transform-origin: 0px 199px;
+  animation: login-tree-move 5s ease-in-out infinite;
+}
+
+@media only screen and (max-width: 768px) {
+  svg{
+    height: 300px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  svg{
+    height: 200px;
+  }
+  p{
+    font-size: 0.7em;
+  }
+}
+
+
