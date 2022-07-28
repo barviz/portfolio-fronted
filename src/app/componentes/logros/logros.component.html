@@ -12,7 +12,12 @@
           data-bs-target="#addProyectoModal"
           (click)="onOpenModal('add')"
         >
-          <button type="button" class="btn btn-default boton-agregar" title="Añadir Proyecto">
+          <button
+            *ngIf="isAdmin"
+            type="button"
+            class="btn btn-default boton-agregar"
+            title="Añadir Proyecto"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -170,7 +175,12 @@
             data-bs-target="#editProyectoModal"
             (click)="onOpenModal('edit', proyecto)"
           >
-            <button type="button" class="btn btn-default boton-editar" title="Actualizar Proyecto">
+            <button
+              *ngIf="isAdmin"
+              type="button"
+              class="btn btn-default boton-editar"
+              title="Actualizar Proyecto"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"
@@ -193,7 +203,12 @@
             data-bs-target="#deleteProyectoModal"
             (dblclick)="onDeleteProyecto(proyecto.id)"
           >
-            <button type="button" class="btn btn-default boton-borrar" title="DOBLE CLICK para eliminar">
+            <button
+              *ngIf="isAdmin"
+              type="button"
+              class="btn btn-default boton-borrar"
+              title="DOBLE CLICK para eliminar"
+            >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
                 width="16"

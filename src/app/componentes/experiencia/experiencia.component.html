@@ -7,6 +7,7 @@
     <div class="centrado">
       <div class="boton-agregar">
         <button
+          *ngIf="isAdmin"
           type="button"
           class="btn btn-default boton-agregar"
           data-bs-toggle="tooltip"
@@ -39,12 +40,10 @@
       <div class="titulo-seccion">
         <h3>Experience</h3>
       </div>
-
     </div>
-
   </div>
 
-   <!--FIN MITAD FIJA-->
+  <!--FIN MITAD FIJA-->
 
   <!-- Modal add -->
 
@@ -57,7 +56,10 @@
     aria-hidden="true"
   >
     <div class="modal-dialog" role="document">
-      <div class="modal-content modal-css" style="background-color: rgb(147, 247, 213)">
+      <div
+        class="modal-content modal-css"
+        style="background-color: rgb(147, 247, 213)"
+      >
         <div class="modal-header">
           <h5 class="modal-title" id="addExperienciaModalLabel">
             Añadir Experiencia
@@ -172,7 +174,6 @@
   <!--INICIO MITAD SCROLL-->
 
   <div class="contenido-movil ccm3">
-
     <!--botones editar y eliminar-->
 
     <div class="card-ind">
@@ -180,6 +181,7 @@
         <div id="boton-edicion">
           <a class="boton-editar">
             <button
+              *ngIf="isAdmin"
               type="button"
               class="btn btn-default boton-editar"
               data-bs-toggle="modal"
@@ -207,6 +209,7 @@
           </a>
           <a class="boton-borrar">
             <button
+              *ngIf="isAdmin"
               type="button"
               class="btn btn-default boton-borrar"
               data-bs-target="#deleteExperienciaModal"
@@ -261,7 +264,7 @@
     </div>
   </div>
 
-    <!--FIN MITAD SCROLL-->
+  <!--FIN MITAD SCROLL-->
 
   <!-- Modal Edit -->
 
@@ -393,7 +396,4 @@
   </div>
 
   <!-- fin Modal Edit -->
-
-
-
 </div>

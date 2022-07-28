@@ -87,8 +87,17 @@
         class="btn btn-sm btn-outline-secondary my-2 my-sm-0"
         type="button"
         (click)="login()"
+        *ngIf="!isLogged"
       >
         Login
+      </button>
+      <button
+        class="btn btn-sm btn-outline-secondary my-2 my-sm-0"
+        type="button"
+        (click)="onLogOut()"
+        *ngIf="isLogged"
+      >
+        Sign off
       </button>
     </form>
   </div>
@@ -97,12 +106,14 @@
     <div class="centrado-encab">
       <div id="boton" class="boton-editar-encab">
         <button
+          *ngIf="isAdmin"
           type="button"
           class="btn btn-default"
           data-bs-toggle="modal"
           data-bs-target="#editPersonaDatosModal"
           title="Actualizar Datos Personales"
           (click)="onOpenModal('edit', personaDatos)"
+
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

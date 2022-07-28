@@ -7,6 +7,7 @@
     <div class="centrado">
       <div class="boton-agregar">
         <button
+          *ngIf="isAdmin"
           type="button"
           class="btn btn-default boton-agregar"
           data-bs-toggle="tooltip"
@@ -142,6 +143,7 @@
         <div id="boton-edicion">
           <a class="boton-editar">
             <button
+              *ngIf="isAdmin"
               type="button"
               class="btn btn-default boton-editar"
               data-bs-toggle="modal"
@@ -169,6 +171,7 @@
           </a>
           <a class="boton-borrar">
             <button
+              *ngIf="isAdmin"
               type="button"
               class="btn btn-default boton-borrar"
               data-bs-target="#deleteTecnologiaModal"
