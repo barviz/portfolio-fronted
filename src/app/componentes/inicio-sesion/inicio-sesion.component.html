@@ -1,7 +1,7 @@
-<form class="login">
-  <input type="text" placeholder="Username">
-  <input type="password" placeholder="Password">
-  <button>Login</button>
+<form #f="ngForm" (ngSubmit)="onLogin()" novalidate class="login">
+  <input type="text" id="userName" name="userName" for="userName" [(ngModel)]="userName" required placeholder="Username">
+  <input type="password" id="password" name="password" for="password" [(ngModel)]="password" required placeholder="Password">
+  <button type="submit">Login</button>
 </form>
 
 
