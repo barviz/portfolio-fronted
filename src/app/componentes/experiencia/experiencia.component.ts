@@ -1,8 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Experiencia } from 'src/app/model/experiencia.model';
 import { ExperienciaService } from 'src/app/servicios/experiencia.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-experiencia',
@@ -11,14 +13,29 @@ import { ExperienciaService } from 'src/app/servicios/experiencia.service';
 })
 export class ExperienciaComponent implements OnInit {
 
+  isLogged = false;
+  roles!: string[];
+  isAdmin = false;
+
   public experiencias: Experiencia[] = [];
   public editExperiencia: Experiencia | undefined;
   public deleteExperiencia: Experiencia | undefined;
 
-  constructor(public experienciaService: ExperienciaService) { }
+  constructor(public experienciaService: ExperienciaService, private router: Router, private tokenService: TokenService) { }
 
   ngOnInit(): void {
+
     this.getExperiencia();
+
+    this.isLogged = this.tokenService.isLogged();
+
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
+
   }
 
   getExperiencia(): void {

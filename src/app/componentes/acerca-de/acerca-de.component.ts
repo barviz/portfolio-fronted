@@ -1,7 +1,9 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { PersonaResumen } from 'src/app/model/persona-resumen.model';
 import { PersonaResumenService } from 'src/app/servicios/persona-resumen.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-acerca-de',
@@ -10,15 +12,30 @@ import { PersonaResumenService } from 'src/app/servicios/persona-resumen.service
 })
 export class AcercaDeComponent implements OnInit {
 
+  isLogged = false;
+  roles!: string[];
+  isAdmin = false;
+
   personaResumen: PersonaResumen = new PersonaResumen(1,"");
   //public persona: Persona | undefined;
   public editPersonaResumen: PersonaResumen | undefined;
   public deletePersonaResumen: PersonaResumen | undefined;
 
-  constructor(public personaResumenService: PersonaResumenService) { }
+  constructor(public personaResumenService: PersonaResumenService, private router: Router, private tokenService: TokenService) { }
 
   ngOnInit(): void {
-    this.getPersonaResumen();  }
+
+    this.getPersonaResumen();
+
+    this.isLogged = this.tokenService.isLogged();
+
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
+  }
 
   getPersonaResumen(): void {
     this.personaResumenService.buscarPersonaResumenPorId(1).subscribe(data => { this.personaResumen = data })

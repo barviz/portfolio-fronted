@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { PersonaDatos } from 'src/app/model/persona-datos.model';
 import { PersonaDatosService } from 'src/app/servicios/persona-datos.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-encabezado',
@@ -11,15 +12,39 @@ import { PersonaDatosService } from 'src/app/servicios/persona-datos.service';
 })
 export class EncabezadoComponent implements OnInit {
 
-  personaDatos: PersonaDatos = new PersonaDatos(1,"", "", "", "", "", "");
+  isLogged = false;
+  roles!: string[];
+  isAdmin = false;
+
+  personaDatos: PersonaDatos = new PersonaDatos(1, "", "", "", "", "", "");
 
   public editPersonaDatos: PersonaDatos | undefined;
   public deletePersonaDatos: PersonaDatos | undefined;
 
-  constructor(public personaDatosService: PersonaDatosService, private router: Router) { }
+  constructor(public personaDatosService: PersonaDatosService, private router: Router, private tokenService: TokenService) { }
 
   ngOnInit(): void {
-    this.getPersonaDatos();  }
+
+    this.getPersonaDatos();
+
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
+
+    this.isLogged = this.tokenService.isLogged();
+  }
+
+  onLogOut(): void {
+    this.tokenService.logOut();
+    window.location.reload();
+  }
+
+  login() {
+    this.router.navigate(['/inicio-sesion'])
+  }
 
   getPersonaDatos(): void {
     this.personaDatosService.buscarPersonaDatosPorId(1).subscribe(data => { this.personaDatos = data })
@@ -54,10 +79,6 @@ export class EncabezadoComponent implements OnInit {
         alert(error.message);
       },
     });
-  }
-
-  login(){
-    this.router.navigate(['inicio-sesion']);
   }
 
 }

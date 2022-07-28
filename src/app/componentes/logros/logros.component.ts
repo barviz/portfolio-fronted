@@ -1,8 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Proyecto } from 'src/app/model/proyecto.model';
 import { ProyectoService } from 'src/app/servicios/proyecto.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-logros',
@@ -11,14 +13,29 @@ import { ProyectoService } from 'src/app/servicios/proyecto.service';
 })
 export class LogrosComponent implements OnInit {
 
+  isLogged = false;
+  roles!: string[];
+  isAdmin = false;
+
   public proyectos: Proyecto[] = [];
   public editProyecto: Proyecto | undefined;
   public deleteProyecto: Proyecto | undefined;
 
-  constructor(public proyectoService: ProyectoService) { }
+  constructor(public proyectoService: ProyectoService, private router: Router, private tokenService: TokenService) { }
 
   ngOnInit(): void {
+
     this.getProyecto();
+
+    this.isLogged = this.tokenService.isLogged();
+
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
+
   }
 
   getProyecto(): void {

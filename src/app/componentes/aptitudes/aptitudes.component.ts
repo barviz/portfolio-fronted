@@ -1,8 +1,10 @@
 import { HttpErrorResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
 import { Tecnologia } from 'src/app/model/tecnologia.model';
 import { TecnologiaService } from 'src/app/servicios/tecnologia.service';
+import { TokenService } from 'src/app/servicios/token.service';
 
 @Component({
   selector: 'app-aptitudes',
@@ -11,14 +13,29 @@ import { TecnologiaService } from 'src/app/servicios/tecnologia.service';
 })
 export class AptitudesComponent implements OnInit {
 
+  isLogged = false;
+  roles!: string[];
+  isAdmin = false;
+
   public tecnologias: Tecnologia[] = [];
   public editTecnologia: Tecnologia | undefined;
   public deleteTecnologia: Tecnologia | undefined;
 
-  constructor(public tecnologiaService: TecnologiaService) { }
+  constructor(public tecnologiaService: TecnologiaService, private router: Router, private tokenService: TokenService) { }
 
   ngOnInit(): void {
+
     this.getTecnologia();
+
+    this.isLogged = this.tokenService.isLogged();
+
+    this.roles = this.tokenService.getAuthorities();
+    this.roles.forEach(rol => {
+      if (rol === 'ROLE_ADMIN') {
+        this.isAdmin = true;
+      }
+    });
+
   }
 
   getTecnologia(): void {
