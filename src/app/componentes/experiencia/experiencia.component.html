@@ -1,4 +1,4 @@
-<div id="seccion-experiencia" class="wrapper cf">
+<div id="seccion-experience" class="wrapper cf">
   <!--INICIO MITAD FIJA-->
 
   <div class="contenido-fijo ccf3">
@@ -213,8 +213,9 @@
               type="button"
               class="btn btn-default boton-borrar"
               data-bs-target="#deleteExperienciaModal"
-              title="DOBLE CLICK para eliminar"
-              (dblclick)="onDeleteExperiencia(experiencia.id)"
+              data-bs-toggle="modal"
+              title="Eliminar Experiencia"
+              (click)="onOpenModal('delete', experiencia)"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -396,4 +397,49 @@
   </div>
 
   <!-- fin Modal Edit -->
+
+  <!-- fin Modal Edit -->
+
+  <!--Modal Delete-->
+  <div
+    class="modal fade"
+    id="deleteExperienciaModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="deleteModelLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModelLabel">Eliminar Skill</h5>
+        </div>
+        <div class="modal-body">
+          <p style="color: rgb(0, 0, 0)">
+            ¿Seguro que desea eliminar la experiencia: "{{
+              deleteExperiencia?.puesto
+            }}"?
+          </p>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              No
+            </button>
+            <button
+              (click)="onDeleteExperiencia(deleteExperiencia!.id)"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+            >
+              Si
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fin Modal Delete-->
 </div>

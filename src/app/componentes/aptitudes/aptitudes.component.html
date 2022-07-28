@@ -1,4 +1,4 @@
-<div id="seccion-aptitudes" class="wrapper cf">
+<div id="seccion-skills" class="wrapper cf">
   <!--INICIO MITAD FIJA-->
 
   <div class="contenido-fijo ccf5">
@@ -174,9 +174,10 @@
               *ngIf="isAdmin"
               type="button"
               class="btn btn-default boton-borrar"
+              data-bs-toggle="modal"
               data-bs-target="#deleteTecnologiaModal"
-              title="DOBLE CLICK para eliminar"
-              (dblclick)="onDeleteTecnologia(tecnologia.id)"
+              title="Eliminar Tecnologia"
+              (click)="onOpenModal('delete', tecnologia)"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -235,7 +236,7 @@
       >
         <div class="modal-header">
           <h5 class="modal-title" id="updateTecnologiaModalLabel">
-            ActualizarSkill
+            Actualizar Skill
           </h5>
           <button
             type="button"
@@ -315,4 +316,47 @@
   </div>
 
   <!-- fin Modal Edit -->
+
+  <!--Modal Delete-->
+  <div
+    class="modal fade"
+    id="deleteTecnologiaModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="deleteModelLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModelLabel">Eliminar Skill</h5>
+        </div>
+        <div class="modal-body">
+          <p style="color: rgb(0, 0, 0)">
+            ¿Seguro que desea eliminar la skill: "{{
+              deleteTecnologia?.nombre
+            }}"?
+          </p>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              No
+            </button>
+            <button
+              (click)="onDeleteTecnologia(deleteTecnologia!.id)"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+            >
+              Si
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Fin Modal Delete-->
 </div>

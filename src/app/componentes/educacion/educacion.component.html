@@ -1,4 +1,4 @@
-<div id="seccion-educacion" class="wrapper cf">
+<div id="seccion-education" class="wrapper cf">
   <!--INICIO MITAD FIJA-->
 
   <div class="contenido-fijo ccf2">
@@ -198,9 +198,10 @@
               *ngIf="isAdmin"
               type="button"
               class="btn btn-default boton-borrar"
+              data-bs-toggle="modal"
               data-bs-target="#deleteEducacionModal"
-              title="DOBLE CLICK para eliminar"
-              (dblclick)="onDeleteEducacion(educacion.id)"
+              title="Eliminar Educacion"
+              (click)="onOpenModal('delete', educacion)"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -220,7 +221,7 @@
         <!--tarjeta-->
 
         <img
-          style="width: 300px; padding: 10px"
+          style="width: 150px; padding: 10px posic-centr"
           src="{{ educacion.img_url_logo }}"
         />
         <div>
@@ -366,7 +367,7 @@
     </div>
   </div>
 
-  <!-- Modal eliminar
+  <!--Modal Delete-->
   <div
     class="modal fade"
     id="deleteEducacionModal"
@@ -381,22 +382,22 @@
           <h5 class="modal-title" id="deleteModelLabel">Eliminar Educación</h5>
         </div>
         <div class="modal-body">
-          <p style="color: rgb(255, 255, 255)">
-            ¿Seguro que desea eliminar esta educación
-            {{ eliminarEducacion?.titulo }}?
+          <p style="color: rgb(0, 0, 0)">
+            ¿Seguro que desea eliminar la educación:
+            "{{ deleteEducacion?.titulo }}"?
           </p>
           <div class="modal-footer">
             <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
+            type="button"
+            class="btn btn-secondary"
+            data-bs-dismiss="modal"
             >
               No
             </button>
             <button
-              (click)="onDeleteEducacion(eliminarEducacion!.id)"
+              (click)="onDeleteEducacion(deleteEducacion!.id)"
               class="btn btn-danger"
-              data-dismiss="modal"
+              data-bs-dismiss="modal"
             >
               Si
             </button>
@@ -404,5 +405,6 @@
         </div>
       </div>
     </div>
-  </div>-->
+  </div>
+    <!-- Fin Modal Delete-->
 </div>

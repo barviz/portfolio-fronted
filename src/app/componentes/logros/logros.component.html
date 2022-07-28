@@ -1,4 +1,4 @@
-<div id="seccion-logros" class="wrapper cf">
+<div id="seccion-projects" class="wrapper cf">
   <!--INICIO MITAD FIJA-->
 
   <div class="contenido-fijo ccf4">
@@ -207,7 +207,10 @@
               *ngIf="isAdmin"
               type="button"
               class="btn btn-default boton-borrar"
-              title="DOBLE CLICK para eliminar"
+              data-bs-toggle="modal"
+              data-bs-target="#deleteProyectoModal"
+              title="Eliminar Proyecto"
+              (click)="onOpenModal('delete', proyecto)"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -240,16 +243,18 @@
           </h3>
           <p
             class="text-xs font-semibold mb-3 text-secondary | sm:text-left sm:text-base"
+            style="margin: 0px 30px"
           >
             {{ proyecto.descripcion }}
           </p>
           <h5
-            class="text-xs text-neutral-content text-center | sm:text-left sm:text-base"
+            class="fs-6 text-neutral-content text-center | sm:text-left sm:text-base"
           >
             {{ proyecto.link }}
           </h5>
           <h6
             class="text-xs text-neutral-content text-center | sm:text-left sm:text-base"
+            style="margin-bottom: 30px"
           >
             {{ proyecto.anio }}
           </h6>
@@ -381,4 +386,46 @@
   </div>
 
   <!-- fin Modal Edit -->
+
+  <!--Modal eliminar-->
+  <div
+    class="modal fade"
+    id="deleteProyectoModal"
+    tabindex="-1"
+    role="dialog"
+    aria-labelledby="deleteModelLabel"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModelLabel">Eliminar Proyecto</h5>
+        </div>
+        <div class="modal-body">
+          <p style="color: rgb(0, 0, 0)">
+            ¿Seguro que desea eliminar el proyecto: "{{
+              deleteProyecto?.nombre
+            }}"?
+          </p>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-bs-dismiss="modal"
+            >
+              No
+            </button>
+            <button
+              (click)="onDeleteProyecto(deleteProyecto!.id)"
+              class="btn btn-danger"
+              data-bs-dismiss="modal"
+            >
+              Si
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Fin Modal Delete-->
 </div>
