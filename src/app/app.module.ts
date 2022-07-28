@@ -16,6 +16,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { PortfolioComponent } from './componentes/portfolio/portfolio.component';
 import { InicioSesionComponent } from './componentes/inicio-sesion/inicio-sesion.component';
 import { FooterComponent } from './componentes/footer/footer.component';
+import { interceptorProvider } from './servicios/interceptor.service';
 
 @NgModule({
   declarations: [
@@ -38,7 +39,9 @@ import { FooterComponent } from './componentes/footer/footer.component';
     NgCircleProgressModule.forRoot({}),
     AppRoutingModule
   ],
-  providers: [],
+  providers: [
+    interceptorProvider
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
