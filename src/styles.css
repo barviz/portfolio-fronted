@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Amaranth:wght@700&display=swap');
+
+
+
 html {
   overflow-x:hidden;
 }
+
+
 
 h1,
 h2,
@@ -179,34 +185,48 @@ video {
 }
 
 .ccf1{
-  background-color: coral;
+  background-image: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+  /*background-color: coral;*/
 }
 .ccm1{
-  background-color: #fff0ea;
+  background-color: #fcbead;
+  /*;background-image: linear-gradient(120deg, #fda085 0%, #f6d365 100% );*/
 }
 .ccf2{
-  background-color: darkcyan;
+  background-image: linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%);
+  /*background-color: darkcyan;*/
 }
 .ccm2{
-  background-color: #bdf3f3;
+  background-color: #c5dff5;
+  /*background-color: #bdf3f3;*/
 }
 .ccf3{
-  background-color: lightgreen;
+  background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%);
+
+  /*background-color: lightgreen;*/
 }
 .ccm3{
-  background-color: #e4ffe4;
+  background-color: #cebbfa;
+  /*background-color: #e4ffe4;*/
 }
 .ccf4{
-  background-color: mediumpurple;
+  background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%);
+  /*background-color: mediumpurple;*/
 }
 .ccm4{
-  background-color: #e9e1fc;
+  background-color: #fcd9a9;
+  /*background-color: #e9e1fc;*/
 }
 .ccf5{
-  background-color: goldenrod;
+  background-color: #E4E4E1;
+  background-image: radial-gradient(at top center, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.03) 100%), linear-gradient(to top, rgba(255,255,255,0.1) 0%, rgba(143,152,157,0.60) 100%);
+ 	background-blend-mode: normal, multiply;
+
+  /*background-color: goldenrod;*/
 }
 .ccm5{
-  background-color: #f5f0a7;
+  background-color: #fcfcfc;
+  /*background-color: #f5f0a7;*/
 }
 
 .card-ind {
@@ -222,7 +242,6 @@ video {
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 35%;
 }
 
 .centrado-encab{
@@ -766,5 +785,14 @@ a {
     font-size: 0.7em;
   }
 }
+
+
+
+.font-pers{
+  font-family: 'Amaranth', sans-serif;
+  font-size: 45px;
+  letter-spacing: 0.04em;
+}
+
 
 
