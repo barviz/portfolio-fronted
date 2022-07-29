@@ -4,12 +4,12 @@
   <div class="contenido-fijo ccf5">
     <!--boton añadir -->
 
-    <div class="centrado">
+    <div class="centrado" style="margin-top: 200px;">
       <div class="boton-agregar">
         <button
           *ngIf="isAdmin"
           type="button"
-          class="btn btn-default boton-agregar"
+          class="btn btn-sm btn-outline-secondary my-2 my-sm-0 boton-agregar"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           data-bs-toggle="modal"
@@ -38,7 +38,7 @@
       <!--titulo de seccion-->
 
       <div class="titulo-seccion">
-        <h3>Hard & Soft Skills</h3>
+        <h3 class="font-pers-secc">Hard & Soft<br>Skills</h3>
       </div>
     </div>
   </div>
@@ -58,7 +58,9 @@
     <div class="modal-dialog" role="document">
       <div
         class="modal-content modal-css"
-        style="background-color: rgb(215, 243, 139)"
+        style="background-color: #E4E4E1;
+        background-image: radial-gradient(at top center, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.03) 100%), linear-gradient(to top, rgba(255,255,255,0.1) 0%, rgba(143,152,157,0.60) 100%);
+         background-blend-mode: normal, multiply"
       >
         <div class="modal-header">
           <h5 class="modal-title" id="addTecnologiaModalLabel">Añadir Skill</h5>
@@ -92,7 +94,7 @@
                 name="porcentaje"
                 ngModel
                 required
-                placeholder="Porcentaje"
+                placeholder="Porcentaje (sólo números)"
               />
             </div>
             <div class="form-group">
@@ -104,14 +106,14 @@
                 name="img_url_logo"
                 ngModel
                 required
-                placeholder="URL Imagen"
+                placeholder="URL Imagen (png de preferencia)"
               />
             </div>
             <div class="modal-footer mt-3">
               <button
                 type="button"
                 id="add-experiencia-form"
-                class="btn btn-secondary"
+                class="btn btn-outline-danger"
                 data-bs-dismiss="modal"
               >
                 Cancelar
@@ -119,7 +121,7 @@
 
               <button
                 type="submit"
-                class="btn btn-primary"
+                class="btn btn-outline-success"
                 [disabled]="addForm.invalid"
                 data-bs-dismiss="modal"
               >
@@ -145,7 +147,7 @@
             <button
               *ngIf="isAdmin"
               type="button"
-              class="btn btn-default boton-editar"
+              class="btn btn-sm btn-outline-secondary my-2 my-sm-0 boton-editar"
               data-bs-toggle="modal"
               data-bs-target="#editTecnologiaModal"
               title="Actualizar Skill"
@@ -173,7 +175,7 @@
             <button
               *ngIf="isAdmin"
               type="button"
-              class="btn btn-default boton-borrar"
+              class="btn btn-sm btn-outline-secondary my-2 my-sm-0 boton-borrar"
               data-bs-toggle="modal"
               data-bs-target="#deleteTecnologiaModal"
               title="Eliminar Tecnologia"
@@ -208,8 +210,10 @@
           [innerStrokeWidth]="5"
           [title]="tecnologia.nombre"
           [imageSrc]="tecnologia.img_url_logo"
-          [outerStrokeColor]="'#e21818'"
-          [innerStrokeColor]="'#ffffff'"
+          [outerStrokeGradient]="true"
+          [outerStrokeColor]="'#fffafa'"
+          [outerStrokeGradientStopColor]="'#f10909'"
+          [innerStrokeColor]="'#e0e3de'"
           [animation]="true"
           [animationDuration]="1500"
         ></circle-progress>
@@ -232,7 +236,9 @@
     <div class="modal-dialog" role="document">
       <div
         class="modal-content modal-css"
-        style="background-color: rgb(215, 243, 139)"
+        style="background-color: #E4E4E1;
+        background-image: radial-gradient(at top center, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.03) 100%), linear-gradient(to top, rgba(255,255,255,0.1) 0%, rgba(143,152,157,0.60) 100%);
+         background-blend-mode: normal, multiply"
       >
         <div class="modal-header">
           <h5 class="modal-title" id="updateTecnologiaModalLabel">
@@ -276,7 +282,7 @@
                 name="porcentaje"
                 ngModel="{{ editTecnologia?.porcentaje }}"
                 required
-                placeholder="Porcentaje"
+                placeholder="Porcentaje (sólo números)"
               />
             </div>
             <div class="form-group">
@@ -288,14 +294,14 @@
                 name="img_url_logo"
                 ngModel="{{ editTecnologia?.img_url_logo }}"
                 required
-                placeholder="URL Imagen"
+                placeholder="URL Imagen (png de preferencia)"
               />
             </div>
 
             <div class="modal-footer mt-3">
               <button
                 type="reset"
-                class="btn btn-secondary"
+                class="btn btn-outline-danger"
                 data-bs-dismiss="modal"
               >
                 Cancelar
@@ -303,10 +309,10 @@
 
               <button
                 (click)="onUpdateTecnologia(editForm.value)"
-                class="btn btn-primary"
+                class="btn btn-outline-success"
                 data-bs-dismiss="modal"
               >
-                Guardar
+                Actualizar
               </button>
             </div>
           </form>
@@ -327,7 +333,9 @@
     aria-hidden="true"
   >
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
+      <div class="modal-content" style="background-color: #E4E4E1;
+      background-image: radial-gradient(at top center, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.03) 100%), linear-gradient(to top, rgba(255,255,255,0.1) 0%, rgba(143,152,157,0.60) 100%);
+       background-blend-mode: normal, multiply">
         <div class="modal-header">
           <h5 class="modal-title" id="deleteModelLabel">Eliminar Skill</h5>
         </div>
@@ -340,17 +348,17 @@
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-secondary"
+              class="btn btn-outline-danger"
               data-bs-dismiss="modal"
             >
               No
             </button>
             <button
               (click)="onDeleteTecnologia(deleteTecnologia!.id)"
-              class="btn btn-danger"
+              class="btn btn-outline-success"
               data-bs-dismiss="modal"
             >
-              Si
+              Sí
             </button>
           </div>
         </div>

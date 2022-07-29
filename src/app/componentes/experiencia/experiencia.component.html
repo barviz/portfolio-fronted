@@ -4,12 +4,12 @@
   <div class="contenido-fijo ccf3">
     <!--boton añadir -->
 
-    <div class="centrado">
+    <div class="centrado" style="margin-top: 230px;">
       <div class="boton-agregar">
         <button
           *ngIf="isAdmin"
           type="button"
-          class="btn btn-default boton-agregar"
+          class="btn btn-sm btn-outline-secondary my-2 my-sm-0 boton-agregar"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           data-bs-toggle="modal"
@@ -38,7 +38,7 @@
       <!--titulo de seccion-->
 
       <div class="titulo-seccion">
-        <h3>Experience</h3>
+        <h3 class="font-pers-secc">Experience</h3>
       </div>
     </div>
   </div>
@@ -58,7 +58,7 @@
     <div class="modal-dialog" role="document">
       <div
         class="modal-content modal-css"
-        style="background-color: rgb(147, 247, 213)"
+        style="background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)"
       >
         <div class="modal-header">
           <h5 class="modal-title" id="addExperienciaModalLabel">
@@ -149,15 +149,14 @@
               <button
                 type="button"
                 id="add-experiencia-form"
-                class="btn btn-secondary"
+                class="btn btn-outline-danger"
                 data-bs-dismiss="modal"
               >
                 Cancelar
               </button>
-
               <button
                 type="submit"
-                class="btn btn-primary"
+                class="btn btn-outline-success"
                 [disabled]="addForm.invalid"
                 data-bs-dismiss="modal"
               >
@@ -183,7 +182,7 @@
             <button
               *ngIf="isAdmin"
               type="button"
-              class="btn btn-default boton-editar"
+              class="btn btn-sm btn-outline-secondary my-2 my-sm-0 boton-editar"
               data-bs-toggle="modal"
               data-bs-target="#editExperienciaModal"
               title="Actualizar Experiencia"
@@ -211,7 +210,7 @@
             <button
               *ngIf="isAdmin"
               type="button"
-              class="btn btn-default boton-borrar"
+              class="btn btn-sm btn-outline-secondary my-2 my-sm-0 boton-borrar"
               data-bs-target="#deleteExperienciaModal"
               data-bs-toggle="modal"
               title="Eliminar Experiencia"
@@ -241,17 +240,17 @@
         />
         <div>
           <h3
-            class="text-sm text-neutral-content text-center mb-3 | sm:text-left sm:text-xl"
+            class="text-sm text-neutral-content text-center mb-3 | sm:text-left sm:text-xl font-pers-ed-puest"
           >
             {{ experiencia.puesto }}
           </h3>
           <h5
-            class="text-xs text-neutral-content text-center | sm:text-left sm:text-base"
+            class="text-xs text-neutral-content text-center | sm:text-left sm:text-base font-pers-ed-empr"
           >
             {{ experiencia.empresa }}
           </h5>
           <p
-            class="text-xs font-semibold mb-3 text-secondary | sm:text-left sm:text-base"
+            class="text-xs font-semibold mb-3 text-secondary | sm:text-left sm:text-base font-pers-ed-desc"
           >
             {{ experiencia.descripcion }}
           </p>
@@ -278,7 +277,7 @@
     aria-hidden="true"
   >
     <div class="modal-dialog" role="document">
-      <div class="modal-content modal-css" style="background-color: aquamarine">
+      <div class="modal-content modal-css" style="background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)">
         <div class="modal-header">
           <h5 class="modal-title" id="updateExperienciaModalLabel">
             Actualizar Experiencia
@@ -376,7 +375,7 @@
             <div class="modal-footer mt-3">
               <button
                 type="reset"
-                class="btn btn-secondary"
+                class="btn btn-outline-danger"
                 data-bs-dismiss="modal"
               >
                 Cancelar
@@ -384,10 +383,10 @@
 
               <button
                 (click)="onUpdateExperiencia(editForm.value)"
-                class="btn btn-primary"
+                class="btn btn-outline-success"
                 data-bs-dismiss="modal"
               >
-                Guardar
+                Actualizar
               </button>
             </div>
           </form>
@@ -398,7 +397,6 @@
 
   <!-- fin Modal Edit -->
 
-  <!-- fin Modal Edit -->
 
   <!--Modal Delete-->
   <div
@@ -410,9 +408,9 @@
     aria-hidden="true"
   >
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
+      <div class="modal-content" style="background-image: linear-gradient(to top, #a18cd1 0%, #fbc2eb 100%)">
         <div class="modal-header">
-          <h5 class="modal-title" id="deleteModelLabel">Eliminar Skill</h5>
+          <h5 class="modal-title" id="deleteModelLabel">Eliminar Experiencia</h5>
         </div>
         <div class="modal-body">
           <p style="color: rgb(0, 0, 0)">
@@ -423,17 +421,17 @@
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-secondary"
+              class="btn btn-outline-danger"
               data-bs-dismiss="modal"
             >
               No
             </button>
             <button
               (click)="onDeleteExperiencia(deleteExperiencia!.id)"
-              class="btn btn-danger"
+              class="btn btn-outline-success"
               data-bs-dismiss="modal"
             >
-              Si
+              Sí
             </button>
           </div>
         </div>

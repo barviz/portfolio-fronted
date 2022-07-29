@@ -108,7 +108,7 @@
         <button
           *ngIf="isAdmin"
           type="button"
-          class="btn btn-default"
+          class="btn btn-sm btn-outline-secondary my-2 my-sm-0"
           data-bs-toggle="modal"
           data-bs-target="#editPersonaDatosModal"
           title="Actualizar Datos Personales"
@@ -141,7 +141,7 @@
       </div>
 
       <div>
-        <h1 class="flexbox1">
+        <h1 class="flexbox1 font-pers">
           {{ personaDatos.nombre }} {{ personaDatos.apellido }}
         </h1>
       </div>
@@ -149,7 +149,7 @@
         <h4 class="flexbox2">{{ personaDatos.titulo }}</h4>
       </div>
       <div>
-        <h6 class="flexbox2">{{ personaDatos.ubicacion }}</h6>
+        <h6 class="flexbox2" style="letter-spacing: 0.04em;">{{ personaDatos.ubicacion }}</h6>
       </div>
     </div>
   </div>
@@ -165,7 +165,7 @@
   aria-hidden="true"
 >
   <div class="modal-dialog" role="document">
-    <div class="modal-content modal-css" style="background-color: darksalmon">
+    <div class="modal-content modal-css" style="background-image: linear-gradient(to top, #d299c2 0%, #fef9d7 100%)">
       <div class="modal-header">
         <h5 class="modal-title" id="updatePersonaDatosModalLabel">
           Actualizar Información Personal
@@ -263,7 +263,7 @@
           <div class="modal-footer mt-3">
             <button
               type="reset"
-              class="btn btn-secondary"
+              class="btn btn-outline-danger"
               data-bs-dismiss="modal"
             >
               Cancelar
@@ -271,10 +271,10 @@
 
             <button
               (click)="onUpdatePersonaDatos(editForm.value)"
-              class="btn btn-primary"
+              class="btn btn-outline-success"
               data-bs-dismiss="modal"
             >
-              Guardar
+              Actualizar
             </button>
           </div>
         </form>

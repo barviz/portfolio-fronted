@@ -3,12 +3,12 @@
 
   <div class="contenido-fijo ccf2">
     <!--boton añadir y titulo de seccion-->
-    <div class="centrado">
+    <div class="centrado" style="margin-top: 230px;">
       <div class="boton-agregar">
         <button
           *ngIf="isAdmin"
           type="button"
-          class="btn btn-default boton-agregar"
+          class="btn btn-sm btn-outline-secondary my-2 my-sm-0 boton-agregar"
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           data-bs-toggle="modal"
@@ -37,7 +37,7 @@
       <!--titulo de seccion-->
 
       <div class="titulo-seccion">
-        <h3>Education</h3>
+        <h3 class="font-pers-secc">Education</h3>
       </div>
     </div>
   </div>
@@ -57,7 +57,7 @@
     <div class="modal-dialog" role="document">
       <div
         class="modal-content modal-css"
-        style="background-color: rgb(143, 222, 248)"
+        style="background-image: linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%)"
       >
         <div class="modal-header">
           <h5 class="modal-title" id="addEducacionModalLabel">
@@ -136,7 +136,7 @@
               <button
                 type="button"
                 id="add-education-form"
-                class="btn btn-secondary"
+                class="btn btn-outline-danger"
                 data-bs-dismiss="modal"
               >
                 Cancelar
@@ -144,7 +144,7 @@
 
               <button
                 type="submit"
-                class="btn btn-primary"
+                class="btn btn-outline-success"
                 [disabled]="addForm.invalid"
                 data-bs-dismiss="modal"
               >
@@ -170,7 +170,7 @@
             <button
               *ngIf="isAdmin"
               type="button"
-              class="btn btn-default boton-editar"
+              class="btn btn-sm btn-outline-secondary my-2 my-sm-0 boton-editar"
               data-bs-toggle="modal"
               data-bs-target="#editEducacionModal"
               title="Actualizar Educacion"
@@ -197,7 +197,7 @@
             <button
               *ngIf="isAdmin"
               type="button"
-              class="btn btn-default boton-borrar"
+              class="btn btn-sm btn-outline-secondary my-2 my-sm-0 boton-borrar"
               data-bs-toggle="modal"
               data-bs-target="#deleteEducacionModal"
               title="Eliminar Educacion"
@@ -221,17 +221,17 @@
         <!--tarjeta-->
 
         <img
-          style="width: 150px; padding: 10px posic-centr"
+          style="width: 150px; padding: 10px"
           src="{{ educacion.img_url_logo }}"
         />
         <div>
           <h3
-            class="text-sm text-neutral-content text-center mb-3 | sm:text-left sm:text-xl"
+            class="text-sm text-neutral-content text-center mb-3 | sm:text-left sm:text-xl font-pers-ed-tit"
           >
             {{ educacion.titulo }}
           </h3>
           <p
-            class="text-xs font-semibold mb-3 text-secondary | sm:text-left sm:text-base"
+            class="text-xs font-semibold mb-3 text-secondary | sm:text-left sm:text-base font-pers-ed-inst"
           >
             {{ educacion.institucion }}
           </p>
@@ -259,7 +259,7 @@
     <div class="modal-dialog" role="document">
       <div
         class="modal-content modal-css"
-        style="background-color: rgb(137, 243, 243)"
+        style="background-image: linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%)"
       >
         <div class="modal-header">
           <h5 class="modal-title" id="updateEducacionModalLabel">
@@ -347,7 +347,7 @@
             <div class="modal-footer mt-3">
               <button
                 type="reset"
-                class="btn btn-secondary"
+                class="btn btn-outline-danger"
                 data-bs-dismiss="modal"
               >
                 Cancelar
@@ -355,10 +355,10 @@
 
               <button
                 (click)="onUpdateEducacion(editForm.value)"
-                class="btn btn-primary"
+                class="btn btn-outline-success"
                 data-bs-dismiss="modal"
               >
-                Guardar
+                Actualizar
               </button>
             </div>
           </form>
@@ -377,7 +377,7 @@
     aria-hidden="true"
   >
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
+      <div class="modal-content" style="background-image: linear-gradient(60deg, #64b3f4 0%, #c2e59c 100%)">
         <div class="modal-header">
           <h5 class="modal-title" id="deleteModelLabel">Eliminar Educación</h5>
         </div>
@@ -389,17 +389,17 @@
           <div class="modal-footer">
             <button
             type="button"
-            class="btn btn-secondary"
+            class="btn btn-outline-danger"
             data-bs-dismiss="modal"
             >
               No
             </button>
             <button
               (click)="onDeleteEducacion(deleteEducacion!.id)"
-              class="btn btn-danger"
+              class="btn btn-outline-success"
               data-bs-dismiss="modal"
             >
-              Si
+              Sí
             </button>
           </div>
         </div>

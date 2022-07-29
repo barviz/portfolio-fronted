@@ -4,43 +4,41 @@
   <div class="contenido-fijo ccf4">
     <!--boton añadir -->
 
-    <div class="centrado">
-      <div>
-        <a
-          class="boton-agregar"
+    <div class="centrado" style="margin-top: 230px">
+      <div class="boton-agregar">
+        <button
+          *ngIf="isAdmin"
+          type="button"
+          class="btn btn-sm btn-outline-secondary my-2 my-sm-0 boton-agregar"
+          data-bs-toggle="tooltip"
+          data-bs-placement="top"
           data-bs-toggle="modal"
           data-bs-target="#addProyectoModal"
+          title="Añadir Proyecto"
           (click)="onOpenModal('add')"
         >
-          <button
-            *ngIf="isAdmin"
-            type="button"
-            class="btn btn-default boton-agregar"
-            title="Añadir Proyecto"
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="16"
+            height="16"
+            fill="currentColor"
+            class="bi bi-plus-square"
+            viewBox="0 0 16 16"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              fill="currentColor"
-              class="bi bi-plus-square"
-              viewBox="0 0 16 16"
-            >
-              <path
-                d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
-              />
-              <path
-                d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
-              />
-            </svg>
-          </button>
-        </a>
+            <path
+              d="M14 1a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h12zM2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2H2z"
+            />
+            <path
+              d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"
+            />
+          </svg>
+        </button>
       </div>
 
       <!-- titulo de seccion-->
 
       <div class="titulo-seccion">
-        <h3>Projects</h3>
+        <h3 class="font-pers-secc">Projects</h3>
       </div>
     </div>
   </div>
@@ -60,7 +58,7 @@
     <div class="modal-dialog" role="document">
       <div
         class="modal-content modal-css"
-        style="background-color: rgb(205, 139, 250)"
+        style="background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)"
       >
         <div class="modal-header">
           <h5 class="modal-title" id="addProyectoModalLabel">
@@ -139,7 +137,7 @@
               <button
                 type="button"
                 id="add-proyecto-form"
-                class="btn btn-secondary"
+                class="btn btn-outline-danger"
                 data-bs-dismiss="modal"
               >
                 Cancelar
@@ -147,7 +145,7 @@
 
               <button
                 type="submit"
-                class="btn btn-primary"
+                class="btn btn-outline-success"
                 [disabled]="addForm.invalid"
                 data-bs-dismiss="modal"
               >
@@ -169,17 +167,15 @@
     <div class="card-ind">
       <div *ngFor="let proyecto of proyectos" class="esp">
         <div id="boton-edicion">
-          <a
-            class="boton-editar"
-            data-bs-toggle="modal"
-            data-bs-target="#editProyectoModal"
-            (click)="onOpenModal('edit', proyecto)"
-          >
+          <a class="boton-editar">
             <button
               *ngIf="isAdmin"
               type="button"
-              class="btn btn-default boton-editar"
+              class="btn btn-sm btn-outline-secondary my-2 my-sm-0 boton-editar"
+              data-bs-toggle="modal"
+              data-bs-target="#editProyectoModal"
               title="Actualizar Proyecto"
+              (click)="onOpenModal('edit', proyecto)"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -198,15 +194,11 @@
                 />
               </svg></button
           ></a>
-          <a
-            class="boton-borrar"
-            data-bs-target="#deleteProyectoModal"
-            (dblclick)="onDeleteProyecto(proyecto.id)"
-          >
+          <a class="boton-borrar">
             <button
               *ngIf="isAdmin"
               type="button"
-              class="btn btn-default boton-borrar"
+              class="btn btn-sm btn-outline-secondary my-2 my-sm-0 boton-borrar"
               data-bs-toggle="modal"
               data-bs-target="#deleteProyectoModal"
               title="Eliminar Proyecto"
@@ -237,20 +229,21 @@
           />
 
           <h3
-            class="text-sm text-neutral-content text-center mb-3 | sm:text-left sm:text-xl"
+            class="text-sm text-neutral-content text-center mb-3 | sm:text-left sm:text-xl font-pers-pr-nomb"
           >
             {{ proyecto.nombre }}
           </h3>
           <p
-            class="text-xs font-semibold mb-3 text-secondary | sm:text-left sm:text-base"
+            class="text-xs font-semibold mb-3 text-secondary | sm:text-left sm:text-base font-pers-pr-desc"
             style="margin: 0px 30px"
           >
             {{ proyecto.descripcion }}
           </p>
           <h5
             class="fs-6 text-neutral-content text-center | sm:text-left sm:text-base"
-          >
-            {{ proyecto.link }}
+          ><a href="{{ proyecto.link }}" target="_blank"
+          >Ir al proyecto</a
+        >
           </h5>
           <h6
             class="text-xs text-neutral-content text-center | sm:text-left sm:text-base"
@@ -278,7 +271,7 @@
     <div class="modal-dialog" role="document">
       <div
         class="modal-content modal-css"
-        style="background-color: rgb(190, 169, 240)"
+        style="background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)"
       >
         <div class="modal-header">
           <h5 class="modal-title" id="updateProyectoModalLabel">
@@ -365,7 +358,7 @@
             <div class="modal-footer mt-3">
               <button
                 type="reset"
-                class="btn btn-secondary"
+                class="btn btn-outline-danger"
                 data-bs-dismiss="modal"
               >
                 Cancelar
@@ -373,10 +366,10 @@
 
               <button
                 (click)="onUpdateProyecto(editForm.value)"
-                class="btn btn-primary"
+                class="btn btn-outline-success"
                 data-bs-dismiss="modal"
               >
-                Guardar
+                Actualizar
               </button>
             </div>
           </form>
@@ -397,7 +390,7 @@
     aria-hidden="true"
   >
     <div class="modal-dialog" role="document">
-      <div class="modal-content">
+      <div class="modal-content" style="background-image: linear-gradient(to right, #ffecd2 0%, #fcb69f 100%)">
         <div class="modal-header">
           <h5 class="modal-title" id="deleteModelLabel">Eliminar Proyecto</h5>
         </div>
@@ -410,17 +403,17 @@
           <div class="modal-footer">
             <button
               type="button"
-              class="btn btn-secondary"
+              class="btn btn-outline-danger"
               data-bs-dismiss="modal"
             >
               No
             </button>
             <button
               (click)="onDeleteProyecto(deleteProyecto!.id)"
-              class="btn btn-danger"
+              class="btn btn-outline-success"
               data-bs-dismiss="modal"
             >
-              Si
+              Sí
             </button>
           </div>
         </div>
