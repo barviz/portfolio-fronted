@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Fleur+De+Leah&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amethysta&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Biryani:wght@600&display=swap');
+
+.font-pers-secc{
+  font-family: 'Fleur De Leah', cursive;
+  font-size: 55px;
+  text-shadow: rgb(71, 70, 70) 0.05em 0.03em 0.2em;
+}
+
+.font-pers-ed-tit{
+  font-family: 'Amethysta', serif;
+  font-weight: bold;
+}
+
+.font-pers-ed-inst{
+  font-family: 'Biryani', sans-serif;
+  font-size: 15px;
+}
