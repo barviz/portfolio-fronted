@@ -2,6 +2,9 @@
   <input type="text" id="userName" name="userName" for="userName" [(ngModel)]="userName" required placeholder="Username">
   <input type="password" id="password" name="password" for="password" [(ngModel)]="password" required placeholder="Password">
   <button type="submit">Login</button>
+  <div style="margin-left: 0px;">
+    <a style="color: rgba(244, 91, 105, 1); font-weight: bold;" class="nav-link" routerLink="/registro">Registrate</a>
+  </div>
   <div *ngIf="f.submitted && isLogginFail" class="alert alert-danger mt-3">Error en el login: no autorizado</div>
 </form>
 

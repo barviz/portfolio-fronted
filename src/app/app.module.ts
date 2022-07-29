@@ -17,6 +17,7 @@ import { PortfolioComponent } from './componentes/portfolio/portfolio.component'
 import { InicioSesionComponent } from './componentes/inicio-sesion/inicio-sesion.component';
 import { FooterComponent } from './componentes/footer/footer.component';
 import { interceptorProvider } from './servicios/interceptor.service';
+import { RegistroComponent } from './componentes/registro/registro.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { interceptorProvider } from './servicios/interceptor.service';
     PortfolioComponent,
     InicioSesionComponent,
     FooterComponent,
+    RegistroComponent,
   ],
   imports: [
     BrowserModule,
