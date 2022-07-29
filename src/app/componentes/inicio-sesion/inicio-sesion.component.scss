@@ -1,5 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Reem+Kufi&display=swap");
+
+.font-pers-in {
+  font-family: "Reem Kufi", sans-serif;
+}
+
 p {
-  color : rgb(184, 27, 27);
+  color: rgb(184, 27, 27);
   text-align: center;
   margin-top: 15px;
   margin-bottom: 30px;
@@ -7,38 +13,33 @@ p {
   font-weight: bold;
 }
 
-svg{
-  margin-left: 150px;
-  overflow: hidden;
-}
-
 @keyframes login-dog-head-nod {
   0% {
-      transform: rotate(21deg);
+    transform: rotate(21deg);
   }
   16% {
-      transform: rotate(24deg);
+    transform: rotate(24deg);
   }
   50% {
-      transform: rotate(11deg);
+    transform: rotate(11deg);
   }
   84% {
-      transform: rotate(1deg);
+    transform: rotate(1deg);
   }
   100% {
-      transform: rotate(21deg);
+    transform: rotate(21deg);
   }
 }
 
 @keyframes login-dog-tail-wag {
   0% {
-      transform: rotate(-25deg);
+    transform: rotate(-25deg);
   }
   50% {
-      transform: rotate(13deg);
+    transform: rotate(13deg);
   }
   100% {
-      transform: rotate(-25deg);
+    transform: rotate(-25deg);
   }
 }
 
@@ -54,25 +55,25 @@ svg{
 
 @keyframes login-cloud-left-float {
   0% {
-      transform: translateX(0px);
+    transform: translateX(0px);
   }
   50% {
-      transform: translateX(10px);
+    transform: translateX(10px);
   }
   100% {
-      transform: translateX(0px);
+    transform: translateX(0px);
   }
 }
 
 @keyframes login-cloud-right-float {
   0% {
-      transform: translateX(0px);
+    transform: translateX(0px);
   }
   50% {
-      transform: translateX(3px);
+    transform: translateX(3px);
   }
   100% {
-      transform: translateX(0px);
+    transform: translateX(0px);
   }
 }
 
@@ -84,20 +85,18 @@ svg{
   animation: login-cloud-left-float 10s ease-in-out infinite;
 }
 
-
-
 @keyframes login-flowers-rotate {
   0% {
-      transform: rotate(0deg);
+    transform: rotate(0deg);
   }
   25% {
-      transform: rotate(5deg);
+    transform: rotate(5deg);
   }
   75% {
-      transform: rotate(-5deg);
+    transform: rotate(-5deg);
   }
   100% {
-      transform: rotate(0deg);
+    transform: rotate(0deg);
   }
 }
 
@@ -118,13 +117,13 @@ svg{
 
 @keyframes login-grass-move {
   0% {
-      transform: skewX(-5deg);
+    transform: skewX(-5deg);
   }
   50% {
-      transform: skewX(5deg);
+    transform: skewX(5deg);
   }
   100% {
-      transform: skewX(-5deg);
+    transform: skewX(-5deg);
   }
 }
 
@@ -145,13 +144,13 @@ svg{
 
 @keyframes login-tree-move {
   0% {
-      transform: skewX(0.5deg);
+    transform: skewX(0.5deg);
   }
   50% {
-      transform: skewX(-0.5deg);
+    transform: skewX(-0.5deg);
   }
   100% {
-      transform: skewX(0.5deg);
+    transform: skewX(0.5deg);
   }
 }
 
@@ -165,20 +164,13 @@ svg{
   animation: login-tree-move 5s ease-in-out infinite;
 }
 
-
-
-
-
-
-
-
 // Colors
 $greenSeaweed: rgba(2, 128, 144, 1);
 $blueQueen: rgba(69, 105, 144, 1);
 $redFire: rgba(244, 91, 105, 1);
 
 // Fonts
-$fontAsap: 'Asap', sans-serif;
+$fontAsap: "Asap", sans-serif;
 
 body {
   background-color: $redFire;
@@ -197,8 +189,9 @@ body {
   width: 400px;
   box-shadow: 5px 10px 10px rgba($greenSeaweed, 0.2);
 
-  &::before, &::after {
-    content: '';
+  &::before,
+  &::after {
+    content: "";
     position: absolute;
     width: 600px;
     height: 600px;
@@ -253,7 +246,6 @@ body {
   }
 }
 
-
 a {
   text-decoration: none;
   color: rgba(white, 0.6);
@@ -261,4 +253,30 @@ a {
   right: 10px;
   bottom: 10px;
   font-size: 12px;
+}
+
+@media only screen and (max-width: 768px) {
+  svg {
+    height: 570px;
+  }
+  .login {
+    padding: 40px 30px 30px 30px;
+    top: 20%;
+    left: 20%;
+    width: 400px;
+  }
+}
+@media only screen and (max-width: 500px) {
+  svg {
+    height: 500px;
+  }
+  p {
+    font-size: 0.9em;
+  }
+  .login {
+    padding: 40px 30px 30px 30px;
+    top: 27%;
+    left: 10%;
+    width: 400px;
+  }
 }
