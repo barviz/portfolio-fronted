@@ -111,13 +111,12 @@ video {
  //antes: .toolbar #facebook-logo:hover
  //antes: ultima linea del path " fill="#fff"/>
 */
-.toolbar #facebook-logo,
-.toolbar #instagram-logo,
-.toolbar #twitter-logo,
+
 .toolbar #linkedin-logo,
-.toolbar #github-logo {
+.toolbar #github-logo,
+.toolbar #cv-logo {
   opacity: 0.8;
-  margin: 0 5px;
+  margin: 0 9px 0px 0px;
 }
 
 
