@@ -8,7 +8,7 @@ import { PersonaDatos } from '../model/persona-datos.model';
 })
 export class PersonaDatosService {
 
-  URL = 'http://localhost:8080/persona-datos/'
+  URL = 'http://localhost:8080'
 
   constructor(private httpClient: HttpClient) { }
 
@@ -17,22 +17,22 @@ export class PersonaDatosService {
   }*/
 
   public crearPersonaDatos(personaDatos: PersonaDatos): Observable<PersonaDatos>{
-    return this.httpClient.post<PersonaDatos>(this.URL+ 'crear', personaDatos);
+    return this.httpClient.post<PersonaDatos>(this.URL+ '/persona-datos/crear', personaDatos);
   }
 
   public actualizarPersonaDatos(personaDatos: PersonaDatos): Observable<PersonaDatos>{
-    return this.httpClient.put<PersonaDatos>(this.URL+ 'actualizar', personaDatos);
+    return this.httpClient.put<PersonaDatos>(this.URL+ '/persona-datos/actualizar', personaDatos);
   }
 
   public eliminarPersonaDatos(id: number): Observable<void>{
-    return this.httpClient.delete<void>(this.URL+ `eliminar/${id}`);
+    return this.httpClient.delete<void>(this.URL+ `/persona-datos/eliminar/${id}`);
   }
 
   public listarPersonaDatos(): Observable<PersonaDatos>{
-    return this.httpClient.get<PersonaDatos>(this.URL+ 'listar');
+    return this.httpClient.get<PersonaDatos>(this.URL+ '/persona-datos/listar');
   }
 
   public buscarPersonaDatosPorId(id: number): Observable<PersonaDatos>{
-    return this.httpClient.get<PersonaDatos>(this.URL+ `buscar/1`);
+    return this.httpClient.get<PersonaDatos>(this.URL+ `/persona-datos/buscar/1`);
   }
 }
