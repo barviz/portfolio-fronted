@@ -1,10 +1,10 @@
-<div id="seccion-hard-skills" class="wrapper cf">
+<div id="seccion-soft-skills" class="wrapper cf">
   <!--INICIO MITAD FIJA-->
 
-  <div class="contenido-fijo ccf5">
+  <div class="contenido-fijo ccf6">
     <!--boton añadir -->
 
-    <div class="centrado" style="margin-top: 230px;">
+    <div class="centrado" style="margin-top: 225px;">
       <div class="boton-agregar">
         <button
           *ngIf="isAdmin"
@@ -13,8 +13,8 @@
           data-bs-toggle="tooltip"
           data-bs-placement="top"
           data-bs-toggle="modal"
-          data-bs-target="#addTecnologiaModal"
-          title="Añadir Hard Skill"
+          data-bs-target="#addHabilidadModal"
+          title="Añadir Soft Skill"
           (click)="onOpenModal('add')"
         >
           <svg
@@ -38,7 +38,7 @@
       <!--titulo de seccion-->
 
       <div class="titulo-seccion">
-        <h3 class="font-pers-secc">Hard Skills</h3>
+        <h3 class="font-pers-secc">Soft Skills</h3>
       </div>
     </div>
   </div>
@@ -49,19 +49,21 @@
 
   <div
     class="modal fade"
-    id="addTecnologiaModal"
+    id="addHabilidadModal"
     tabindex="-1"
     role="dialog"
-    aria-labelledby="addTecnologiaModalLabel"
+    aria-labelledby="addHabilidadModalLabel"
     aria-hidden="true"
   >
     <div class="modal-dialog" role="document">
       <div
         class="modal-content modal-css"
-        style="background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%)"
+        style="background-color: #E4E4E1;
+        background-image: radial-gradient(at top center, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.03) 100%), linear-gradient(to top, rgba(255,255,255,0.1) 0%, rgba(143,152,157,0.60) 100%);
+         background-blend-mode: normal, multiply"
       >
         <div class="modal-header">
-          <h5 class="modal-title" id="addTecnologiaModalLabel">Añadir Hard Skill</h5>
+          <h5 class="modal-title" id="addHabilidadModalLabel">Añadir Soft Skill</h5>
           <button
             type="button"
             class="btn-close green"
@@ -70,7 +72,7 @@
           ></button>
         </div>
         <div class="modal-body">
-          <form #addForm="ngForm" (ngSubmit)="onAddTecnologia(addForm)">
+          <form #addForm="ngForm" (ngSubmit)="onAddHabilidad(addForm)">
             <div class="form-group">
               <label for="nombre">Nombre</label>
               <input
@@ -110,7 +112,7 @@
             <div class="modal-footer mt-3">
               <button
                 type="button"
-                id="add-experiencia-form"
+                id="add-habilidad-form"
                 class="btn btn-outline-danger"
                 data-bs-dismiss="modal"
               >
@@ -135,11 +137,11 @@
 
   <!--INICIO MITAD SCROLL-->
 
-  <div class="contenido-movil ccm5">
+  <div class="contenido-movil ccm6">
     <!--botones editar y eliminar-->
 
     <div class="card-ind">
-      <div class="esp" *ngFor="let tecnologia of tecnologias">
+      <div class="esp" *ngFor="let habilidad of habilidades">
         <div id="boton-edicion">
           <a class="boton-editar">
             <button
@@ -147,9 +149,9 @@
               type="button"
               class="btn btn-sm btn-outline-secondary my-2 my-sm-0 boton-editar"
               data-bs-toggle="modal"
-              data-bs-target="#editTecnologiaModal"
-              title="Actualizar Skill"
-              (click)="onOpenModal('edit', tecnologia)"
+              data-bs-target="#editHabilidadModal"
+              title="Actualizar Soft Skill"
+              (click)="onOpenModal('edit', habilidad)"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -175,9 +177,9 @@
               type="button"
               class="btn btn-sm btn-outline-secondary my-2 my-sm-0 boton-borrar"
               data-bs-toggle="modal"
-              data-bs-target="#deleteTecnologiaModal"
-              title="Eliminar Tecnologia"
-              (click)="onOpenModal('delete', tecnologia)"
+              data-bs-target="#deleteHabilidadModal"
+              title="Eliminar Soft Skill"
+              (click)="onOpenModal('delete', habilidad)"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -198,7 +200,7 @@
         <!--tarjeta-->
 
         <circle-progress
-          [percent]="tecnologia.porcentaje"
+          [percent]="habilidad.porcentaje"
           [radius]="90"
           [space]="5"
           [showImage]="true"
@@ -206,11 +208,11 @@
           [imageWidth]="90"
           [outerStrokeWidth]="9"
           [innerStrokeWidth]="5"
-          [title]="tecnologia.nombre"
-          [imageSrc]="tecnologia.img_url_logo"
+          [title]="habilidad.nombre"
+          [imageSrc]="habilidad.img_url_logo"
           [outerStrokeGradient]="true"
-          [outerStrokeColor]="'#55ddbb'"
-          [outerStrokeGradientStopColor]="'#a2e1e2'"
+          [outerStrokeColor]="'#f10909'"
+          [outerStrokeGradientStopColor]="'#f88787'"
           [innerStrokeColor]="'#e0e3de'"
           [animation]="true"
           [animationDuration]="1500"
@@ -225,20 +227,22 @@
 
   <div
     class="modal fade"
-    id="editTecnologiaModal"
+    id="editHabilidadModal"
     tabindex="-1"
     role="dialog"
-    aria-labelledby="updateTecnologiaModalLabel"
+    aria-labelledby="updateHabilidadModalLabel"
     aria-hidden="true"
   >
     <div class="modal-dialog" role="document">
       <div
         class="modal-content modal-css"
-        style="background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%)"
+        style="background-color: #E4E4E1;
+        background-image: radial-gradient(at top center, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.03) 100%), linear-gradient(to top, rgba(255,255,255,0.1) 0%, rgba(143,152,157,0.60) 100%);
+         background-blend-mode: normal, multiply"
       >
         <div class="modal-header">
-          <h5 class="modal-title" id="updateTecnologiaModalLabel">
-            Actualizar Hard Skill
+          <h5 class="modal-title" id="updateHabilidadModalLabel">
+            Actualizar Soft Skill
           </h5>
           <button
             type="button"
@@ -256,14 +260,14 @@
                 class="form-control"
                 id="nombre"
                 name="nombre"
-                ngModel="{{ editTecnologia?.nombre }}"
+                ngModel="{{ editHabilidad?.nombre }}"
                 required
                 placeholder="Nombre"
               />
             </div>
             <input
               type="hidden"
-              ngModel="{{ editTecnologia?.id }}"
+              ngModel="{{ editHabilidad?.id }}"
               name="id"
               class="form-control"
               id="id"
@@ -276,7 +280,7 @@
                 class="form-control"
                 id="porcentaje"
                 name="porcentaje"
-                ngModel="{{ editTecnologia?.porcentaje }}"
+                ngModel="{{ editHabilidad?.porcentaje }}"
                 required
                 placeholder="Porcentaje (sólo números)"
               />
@@ -288,7 +292,7 @@
                 class="form-control"
                 id="img_url_logo"
                 name="img_url_logo"
-                ngModel="{{ editTecnologia?.img_url_logo }}"
+                ngModel="{{ editHabilidad?.img_url_logo }}"
                 required
                 placeholder="URL Imagen (png de preferencia)"
               />
@@ -304,7 +308,7 @@
               </button>
 
               <button
-                (click)="onUpdateTecnologia(editForm.value)"
+                (click)="onUpdateHabilidad(editForm.value)"
                 class="btn btn-outline-success"
                 data-bs-dismiss="modal"
               >
@@ -322,21 +326,23 @@
   <!--Modal Delete-->
   <div
     class="modal fade"
-    id="deleteTecnologiaModal"
+    id="deleteHabilidadModal"
     tabindex="-1"
     role="dialog"
     aria-labelledby="deleteModelLabel"
     aria-hidden="true"
   >
     <div class="modal-dialog" role="document">
-      <div class="modal-content" style="background-image: linear-gradient(120deg, #d4fc79 0%, #96e6a1 100%)">
+      <div class="modal-content" style="background-color: #E4E4E1;
+      background-image: radial-gradient(at top center, rgba(255,255,255,0.03) 0%, rgba(0,0,0,0.03) 100%), linear-gradient(to top, rgba(255,255,255,0.1) 0%, rgba(143,152,157,0.60) 100%);
+       background-blend-mode: normal, multiply">
         <div class="modal-header">
-          <h5 class="modal-title" id="deleteModelLabel">Eliminar Hard Skill</h5>
+          <h5 class="modal-title" id="deleteModelLabel">Eliminar Soft Skill</h5>
         </div>
         <div class="modal-body">
           <p style="color: rgb(0, 0, 0)">
-            ¿Seguro que desea eliminar la hard skill: "{{
-              deleteTecnologia?.nombre
+            ¿Seguro que desea eliminar la soft skill: "{{
+              deleteHabilidad?.nombre
             }}"?
           </p>
           <div class="modal-footer">
@@ -348,7 +354,7 @@
               No
             </button>
             <button
-              (click)="onDeleteTecnologia(deleteTecnologia!.id)"
+              (click)="onDeleteHabilidad(deleteHabilidad!.id)"
               class="btn btn-outline-success"
               data-bs-dismiss="modal"
             >
