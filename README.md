@@ -1,27 +1,15 @@
-# PortfolioWebFullStack
+# Proyecto Integrador Portfolio Web Full Stack
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 13.3.0.
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## #YoProgramo
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Objetivo:
 
-## Build
+Desarrollar una aplicación web full stack, que mostrará: tus datos personales, estudios cursados, experiencia laboral, conocimiento de las
+tecnologías y lo que desees agregar. Es decir, ¡crear tu propio portfolio web! Esta aplicación deberá ser de arquitectura distribuida y contener un
+diseño de interfaz de usuario (front end) que muestre la información, una base de datos que almacene los datos antes mencionados y debe contar
+con las APIs necesarias para proveer a través de internet la información (back end). La idea es que, además de servirte para aplicar lo aprendido
+y que te evaluemos, puedas publicar el portfolio web y usarlo como carta de presentación en el mercado laboral.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
