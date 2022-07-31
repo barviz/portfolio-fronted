@@ -8,7 +8,7 @@ import { Tecnologia } from './../model/tecnologia.model';
 })
 export class TecnologiaService {
 
-  URL = 'http://localhost:8080'
+  URL = 'https://portfolio-blv.herokuapp.com'
 
   constructor(private httpClient: HttpClient) { }
 

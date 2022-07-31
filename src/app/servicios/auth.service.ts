@@ -10,7 +10,7 @@ import { UserLogin } from '../model/user-login';
 })
 export class AuthService {
 
-  authURL = 'http://localhost:8080';
+  authURL = 'https://portfolio-blv.herokuapp.com';
 
   constructor(private httpClient: HttpClient) { }
 
