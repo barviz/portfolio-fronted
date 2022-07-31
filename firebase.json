@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/portfoliowebfullstack",
+    "public": "dist/portfolio-web-full-stack",
     "ignore": [
       "firebase.json",
       "**/.*",
