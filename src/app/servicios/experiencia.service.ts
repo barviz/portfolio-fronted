@@ -8,7 +8,8 @@ import { Experiencia } from '../model/experiencia.model';
 })
 export class ExperienciaService {
 
-  URL = 'https://portfolio-blv.herokuapp.com'
+  URL = 'https://portfolio-blv-bar25lo.koyeb.app';
+  //URL = 'https://portfolio-blv.herokuapp.com'
 
   constructor(private httpClient: HttpClient) { }
 

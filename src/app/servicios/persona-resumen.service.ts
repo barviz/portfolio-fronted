@@ -8,7 +8,8 @@ import { PersonaResumen } from '../model/persona-resumen.model';
 })
 export class PersonaResumenService {
 
-  URL = 'https://portfolio-blv.herokuapp.com'
+  URL = 'https://portfolio-blv-bar25lo.koyeb.app';
+  //URL = 'https://portfolio-blv.herokuapp.com'
 
   constructor(private httpClient: HttpClient) { }
 

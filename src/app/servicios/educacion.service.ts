@@ -8,7 +8,8 @@ import { Educacion } from '../model/educacion.model';
 })
 export class EducacionService {
 
-  private URL = 'https://portfolio-blv.herokuapp.com'
+  private URL = 'https://portfolio-blv-bar25lo.koyeb.app';
+  //private URL = 'https://portfolio-blv.herokuapp.com'
 
   constructor(private httpClient: HttpClient) { }
 

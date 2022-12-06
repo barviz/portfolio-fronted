@@ -10,7 +10,8 @@ import { UserLogin } from '../model/user-login';
 })
 export class AuthService {
 
-  authURL = 'https://portfolio-blv.herokuapp.com';
+  authURL = 'https://portfolio-blv-bar25lo.koyeb.app';
+  //authURL = 'https://portfolio-blv.herokuapp.com';
 
   constructor(private httpClient: HttpClient) { }
 
